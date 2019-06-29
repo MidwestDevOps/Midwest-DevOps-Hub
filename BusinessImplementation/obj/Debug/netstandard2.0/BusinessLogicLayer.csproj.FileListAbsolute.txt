@@ -1,0 +1,14 @@
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\BusinessLogicLayer.deps.json
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\BusinessLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\BusinessLogicLayer.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\DatabaseLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\DataEntities.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\DatabaseLogicLayer.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\bin\Debug\netstandard2.0\DataEntities.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.AssemblyInfoInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.AssemblyInfo.cs
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\BusinessImplementation\obj\Debug\netstandard2.0\BusinessLogicLayer.pdb

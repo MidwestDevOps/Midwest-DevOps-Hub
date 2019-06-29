@@ -1,0 +1,3 @@
+{
+  "DatabaseConnection": "server=mysql.midwestdevops.com;port=3306;database=Hub;username=hubuser;password=Iliketoeat1!"
+}

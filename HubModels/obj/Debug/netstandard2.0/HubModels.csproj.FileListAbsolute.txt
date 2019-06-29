@@ -1,0 +1,12 @@
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\bin\Debug\netstandard2.0\HubModels.deps.json
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\bin\Debug\netstandard2.0\HubModels.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\bin\Debug\netstandard2.0\HubModels.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.csproj.CoreCompileInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.AssemblyInfoInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.AssemblyInfo.cs
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\bin\Debug\netstandard2.0\DataEntities.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\bin\Debug\netstandard2.0\DataEntities.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.csprojAssemblyReference.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\HubModels\obj\Debug\netstandard2.0\HubModels.csproj.CopyComplete

@@ -1,0 +1,12 @@
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\bin\Debug\netstandard2.0\DatabaseLogicLayer.deps.json
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\bin\Debug\netstandard2.0\DatabaseLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\bin\Debug\netstandard2.0\DatabaseLogicLayer.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\bin\Debug\netstandard2.0\DataEntities.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\bin\Debug\netstandard2.0\DataEntities.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.csprojAssemblyReference.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.AssemblyInfoInputs.cache
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.AssemblyInfo.cs
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.csproj.CopyComplete
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\DatabaseImplementation\obj\Debug\netstandard2.0\DatabaseLogicLayer.pdb
