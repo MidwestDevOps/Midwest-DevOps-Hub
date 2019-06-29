@@ -23,7 +23,7 @@ namespace DatabaseLogicLayer
             this.sqlConnection = sqlConnection;
         }
 
-        public MySqlConnection GetConnection()
+        internal MySqlConnection GetConnection()
         {
             if (sqlConnection == null)
             {
@@ -106,11 +106,22 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@Description", p.Description);
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
 
-                return cmd.ExecuteScalar().ToString().ConvertToNullableInt();
+
+
+                if (p.ProjectID == null) //Get new id number
+                {
+                    return cmd.ExecuteScalar().ToString().ConvertToNullableInt();
+                }
+                else //Return id if worked
+                {
+                    cmd.ExecuteScalar();
+
+                    return p.ProjectID;
+                }
             }
         }
 
-        public DataEntities.Project ConvertMySQLToEntity(MySqlDataReader reader)
+        internal DataEntities.Project ConvertMySQLToEntity(MySqlDataReader reader)
         {
             DataEntities.Project p = new DataEntities.Project();
 

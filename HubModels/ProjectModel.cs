@@ -26,6 +26,11 @@ namespace HubModels
             get; set;
         }
 
+        public ProjectModel()
+        {
+
+        }
+
         public ProjectModel (DataEntities.Project p)
         {
             this.ProjectID = p.ProjectID;

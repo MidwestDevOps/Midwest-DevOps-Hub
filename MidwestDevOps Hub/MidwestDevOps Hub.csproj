@@ -71,11 +71,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CreateProject.cs">
+    <Compile Include="Forms\Project\AddEditProject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CreateProject.Designer.cs">
-      <DependentUpon>CreateProject.cs</DependentUpon>
+    <Compile Include="Forms\Project\AddEditProject.Designer.cs">
+      <DependentUpon>AddEditProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Project\ShowProjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Project\ShowProjects.Designer.cs">
+      <DependentUpon>ShowProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ticket\CreateTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ticket\CreateTicket.Designer.cs">
+      <DependentUpon>CreateTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ticket\ShowTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ticket\ShowTickets.Designer.cs">
+      <DependentUpon>ShowTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Initialize.cs" />
     <Compile Include="Program.cs" />
@@ -84,8 +102,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CreateProject.resx">
-      <DependentUpon>CreateProject.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Project\AddEditProject.resx">
+      <DependentUpon>AddEditProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Project\ShowProjects.resx">
+      <DependentUpon>ShowProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ticket\CreateTicket.resx">
+      <DependentUpon>CreateTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ticket\ShowTickets.resx">
+      <DependentUpon>ShowTickets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,4 +1,5 @@
 ﻿using MidwestDevOps_Hub.Forms;
+using MidwestDevOps_Hub.Forms.Ticket;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -20,12 +21,6 @@ namespace MidwestDevOps_Hub
         public Form1()
         {
             InitializeComponent();
-
-            BusinessLogicLayer.Projects c = new BusinessLogicLayer.Projects(Utility.GetConnectionString());
-
-            var s = c.GetProjectByID(1);
-
-            var ss = 1;
         }
 
         private void createProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,9 +30,24 @@ namespace MidwestDevOps_Hub
             switch (s.AccessibilityObject.Name)
             {
                 case "Create Project":
-                    CreateProject createProject = new CreateProject();
+                    AddEditProject createProject = new AddEditProject(null, this);
                     createProject.MdiParent = this;
                     createProject.Show();
+                    break;
+                case "View Projects":
+                    ShowProjects editProject = new ShowProjects(this);
+                    editProject.MdiParent = this;
+                    editProject.Show();
+                    break;
+                case "Create Ticket":
+                    CreateTicket createTicket = new CreateTicket(this);
+                    createTicket.MdiParent = this;
+                    createTicket.Show();
+                    break;
+                case "View Tickets":
+                    ShowTickets showTickets = new ShowTickets(this);
+                    showTickets.MdiParent = this;
+                    showTickets.Show();
                     break;
             }
         }

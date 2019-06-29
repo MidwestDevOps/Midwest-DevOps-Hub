@@ -218,7 +218,6 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csprojAssemblyReference.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.exe.config
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Form1.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.CreateProject.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Properties.Resources.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.GenerateResource.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.CoreCompileInputs.cache
@@ -235,3 +234,7 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BusinessLogicLayer.pdb
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DataEntities.pdb
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DatabaseLogicLayer.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.AddEditProject.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.ShowProjects.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.CreateTicket.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTickets.resources
