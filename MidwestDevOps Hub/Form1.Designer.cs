@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,14 +70,14 @@
             // createProjectToolStripMenuItem
             // 
             this.createProjectToolStripMenuItem.Name = "createProjectToolStripMenuItem";
-            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createProjectToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.createProjectToolStripMenuItem.Text = "Create Project";
             this.createProjectToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // showProjectsToolStripMenuItem
             // 
             this.showProjectsToolStripMenuItem.Name = "showProjectsToolStripMenuItem";
-            this.showProjectsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showProjectsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.showProjectsToolStripMenuItem.Text = "View Projects";
             this.showProjectsToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
@@ -92,14 +93,14 @@
             // createTicketToolStripMenuItem
             // 
             this.createTicketToolStripMenuItem.Name = "createTicketToolStripMenuItem";
-            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.createTicketToolStripMenuItem.Text = "Create Ticket";
             this.createTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // viewTicketsToolStripMenuItem
             // 
             this.viewTicketsToolStripMenuItem.Name = "viewTicketsToolStripMenuItem";
-            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.viewTicketsToolStripMenuItem.Text = "View Tickets";
             this.viewTicketsToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
@@ -109,6 +110,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
