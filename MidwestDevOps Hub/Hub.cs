@@ -16,9 +16,9 @@ using System.Windows.Forms;
 
 namespace MidwestDevOps_Hub
 {
-    public partial class Form1 : Form
+    public partial class Hub : Form
     {
-        public Form1()
+        public Hub()
         {
             InitializeComponent();
         }

@@ -217,7 +217,6 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MySql.Data.xml
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csprojAssemblyReference.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.exe.config
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Form1.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Properties.Resources.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.GenerateResource.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.CoreCompileInputs.cache
@@ -238,3 +237,5 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.ShowProjects.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.CreateTicket.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTickets.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Hub.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Login.Login.resources
