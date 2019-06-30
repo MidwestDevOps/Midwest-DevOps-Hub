@@ -38,10 +38,6 @@ namespace MidwestDevOps_Hub.Forms.Login
         public Login()
         {
             InitializeComponent();
-
-            Color backgroundColor = Color.FromArgb(31, 168, 156);
-
-            this.BackColor = backgroundColor;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
