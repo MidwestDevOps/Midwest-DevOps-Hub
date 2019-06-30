@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
     {
         public Form MainForm = null;
 
-        #region BusinessLayer
+        #region Business Layer
 
         public HubModels.ProjectModel projectModel = null;
 
@@ -92,19 +93,21 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
-        public CreateTicket(Form form)
-        {
-            MainForm = form;
-
-            InitializeComponent();
-
-            UpdateProjectComboBox();
-            UpdateCategoryComboBox();
-            UpdatePriorityComboBox();
-        }
+        #region Control Updates
 
         private void UpdateProjectComboBox()
         {
+            var projects = ProjectBLL.GetAllProjects();
+
+            if (projects == null)
+            {
+                MessageBox.Show("Couldn't retrieve projects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                UpdateProjectComboBox(projects);
+            }
+
             cbProject.DataSource = ProjectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
             cbProject.DisplayMember = "Name";
             cbProject.ValueMember = "ProjectID";
@@ -112,6 +115,17 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void UpdateCategoryComboBox()
         {
+            var categories = CategoryBLL.GetAllCategories();
+
+            if (categories == null)
+            {
+                MessageBox.Show("Couldn't retrieve categories", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                UpdateCategoryComboBox(categories);
+            }
+
             cbCategory.DataSource = CategoryBLL.GetAllCategories().OrderBy(x => x.Name).ToList();
             cbCategory.DisplayMember = "Name";
             cbCategory.ValueMember = "TicketCategoryID";
@@ -119,9 +133,86 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void UpdatePriorityComboBox()
         {
+            var priorities = PriorityBLL.GetAllPriorities();
+
+            if (priorities == null)
+            {
+                MessageBox.Show("Couldn't retrieve priorities", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                UpdatePriorityComboBox(priorities);
+            }
+
             cbPriority.DataSource = PriorityBLL.GetAllPriorities().OrderBy(x => x.Name).ToList();
             cbPriority.DisplayMember = "Name";
             cbPriority.ValueMember = "TicketPriorityID";
+        }
+
+        private void UpdateProjectComboBox(List<DataEntities.Project> projects)
+        {
+            if (cbProject.InvokeRequired)
+            {
+                cbProject.Invoke(new MethodInvoker(() => cbProject.DataSource = projects));
+                cbProject.Invoke(new MethodInvoker(() => cbProject.DisplayMember = "Name"));
+                cbProject.Invoke(new MethodInvoker(() => cbProject.ValueMember = "ProjectID"));
+            }
+            else
+            {
+                cbProject.DataSource = projects;
+                cbProject.DisplayMember = "Name";
+                cbProject.ValueMember = "ProjectID";
+            }
+        }
+
+        private void UpdateCategoryComboBox(List<DataEntities.TicketCategory> categories)
+        {
+            if (cbProject.InvokeRequired)
+            {
+                cbCategory.Invoke(new MethodInvoker(() => cbCategory.DataSource = categories));
+                cbCategory.Invoke(new MethodInvoker(() => cbCategory.DisplayMember = "Name"));
+                cbCategory.Invoke(new MethodInvoker(() => cbCategory.ValueMember = "TicketCategoryID"));
+            }
+            else
+            {
+                cbCategory.DataSource = categories;
+                cbCategory.DisplayMember = "Name";
+                cbCategory.ValueMember = "TicketCategoryID";
+            }
+        }
+
+        private void UpdatePriorityComboBox(List<DataEntities.TicketPriority> priorities)
+        {
+            if (cbPriority.InvokeRequired)
+            {
+                cbPriority.Invoke(new MethodInvoker(() => cbPriority.DataSource = priorities));
+                cbPriority.Invoke(new MethodInvoker(() => cbPriority.DisplayMember = "Name"));
+                cbPriority.Invoke(new MethodInvoker(() => cbPriority.ValueMember = "TicketPriorityID"));
+            }
+            else
+            {
+                cbPriority.DataSource = priorities;
+                cbPriority.DisplayMember = "Name";
+                cbPriority.ValueMember = "TicketPriorityID";
+            }
+        }
+
+        #endregion
+
+        public CreateTicket(Form form)
+        {
+            MainForm = form;
+
+            InitializeComponent();
+
+            Thread tProject = new Thread(new ThreadStart(UpdateProjectComboBox));
+            tProject.Start();
+
+            Thread tCategory = new Thread(new ThreadStart(UpdateCategoryComboBox));
+            tCategory.Start();
+
+            Thread tPriority = new Thread(new ThreadStart(UpdatePriorityComboBox));
+            tPriority.Start();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

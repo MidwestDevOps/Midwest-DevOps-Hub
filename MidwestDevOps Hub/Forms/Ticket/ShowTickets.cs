@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
     {
         public Form MainForm = null;
 
-        #region BusinessLayer
+        #region Business Layer
 
         public HubModels.ProjectModel projectModel = null;
 
@@ -92,24 +93,49 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
+        #region Control Updates
+
+        private void RefreshTicketData()
+        {
+            var tickets = TicketBLL.GetAllTickets();
+
+            if (tickets == null)
+            {
+                MessageBox.Show("Couldn't retrieve tickets", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                UpdateTicketList(tickets);
+            }
+        }
+
+        private void UpdateTicketList(List<DataEntities.Ticket> tickets)
+        {
+            foreach (var i in tickets)
+            {
+                string[] row = { i.Subject, i.ProjectName, i.CategoryName };
+
+                if (ltvTickets.InvokeRequired)
+                {
+                    ltvTickets.Invoke(new MethodInvoker(() => ltvTickets.Items.Add(new ListViewItem(row))));
+                }
+                else
+                {
+                    ltvTickets.Invoke(new MethodInvoker(() => ltvTickets.Items.Add(new ListViewItem(row))));
+                }
+            }
+        }
+
+        #endregion
+
         public ShowTickets(Form form)
         {
             MainForm = form;
 
             InitializeComponent();
 
-            LoadTickets();
-        }
-
-        private void LoadTickets()
-        {
-            var tickets = TicketBLL.GetAllTickets().OrderBy(x => x.Issue).ToList();
-
-            foreach (var i in tickets)
-            {
-                string[] row = { i.Subject, i.ProjectName, i.CategoryName };
-                ltvTickets.Items.Add(new ListViewItem(row));
-            }
+            Thread t = new Thread(() => RefreshTicketData());
+            t.Start();
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)

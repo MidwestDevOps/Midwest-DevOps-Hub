@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,8 @@ namespace MidwestDevOps_Hub.Forms
         public Form MainForm = null;
 
         public HubModels.ProjectModel projectModel = null;
+
+        #region Business Layer
 
         private BusinessLogicLayer.Projects _projectBLL
         {
@@ -34,22 +37,45 @@ namespace MidwestDevOps_Hub.Forms
             }
         }
 
+        #endregion
+
+        #region Control Updates
+
+        private void RefreshProjectListView()
+        {
+            var projects = ProjectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
+
+            UpdateProjectListView(projects);
+        }
+
+        private void UpdateProjectListView(List<DataEntities.Project> projects)
+        {
+            if (lstProjects.InvokeRequired)
+            {
+                lstProjects.Invoke(new MethodInvoker(() => lstProjects.DataSource = projects));
+                lstProjects.Invoke(new MethodInvoker(() => lstProjects.DisplayMember = "Name"));
+                lstProjects.Invoke(new MethodInvoker(() => lstProjects.ValueMember = "ProjectID"));
+            }
+            else
+            {
+                lstProjects.DataSource = projects;
+                lstProjects.DisplayMember = "Name";
+                lstProjects.ValueMember = "ProjectID";
+            }
+        }
+
+        #endregion
+
         public ShowProjects(Form form)
         {
             MainForm = form;
 
             InitializeComponent();
 
-            RefreshProjectListView();
-        }
+            lstProjects.Items.Add("Loading...");
 
-        private void RefreshProjectListView()
-        {
-            var projects = ProjectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
-
-            lstProjects.DataSource = projects;
-            lstProjects.DisplayMember = "Name";
-            lstProjects.ValueMember = "ProjectID";
+            Thread t = new Thread(new ThreadStart(RefreshProjectListView));
+            t.Start();
         }
 
         private void lstProjects_DoubleClick(object sender, EventArgs e)
