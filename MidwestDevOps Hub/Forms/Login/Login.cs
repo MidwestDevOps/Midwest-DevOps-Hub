@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MidwestDevOps_Hub.Forms.Login
@@ -46,7 +42,7 @@ namespace MidwestDevOps_Hub.Forms.Login
 
             if (user != null)
             {
-                if (user.Password == txtPassword.Text)
+                if (SecurePasswordHasher.Verify(txtPassword.Text, user.Password))
                 {
                     this.Hide();
                     Hub f = new Hub();
