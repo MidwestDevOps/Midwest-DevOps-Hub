@@ -128,7 +128,10 @@ namespace DatabaseLogicLayer
             p.ProjectID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "ProjectID"));
             p.Name = DBUtilities.ReturnSafeString(reader, "Name");
             p.Description = DBUtilities.ReturnSafeString(reader, "Description");
+            p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
+            p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");
+            p.ModifiedDate = DBUtilities.ReturnSafeDateTime(reader, "ModifiedDate");
 
             return p;
         }

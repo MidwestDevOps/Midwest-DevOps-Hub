@@ -21,6 +21,26 @@ namespace HubModels
             get; set;
         }
 
+        public int? CreatedBy
+        {
+            get; set;
+        }
+
+        public DateTime? CreatedDate
+        {
+            get; set;
+        }
+
+        public int? ModifiedBy
+        {
+            get; set;
+        }
+
+        public DateTime? ModifiedDate
+        {
+            get; set;
+        }
+
         public UserModel()
         {
 
@@ -31,6 +51,10 @@ namespace HubModels
             this.UserID = p.UserID;
             this.Username = p.Username;
             this.Password = p.Password;
+            this.CreatedBy = p.CreatedBy;
+            this.CreatedDate = p.CreatedDate;
+            this.ModifiedBy = p.ModifiedBy;
+            this.ModifiedDate = p.ModifiedDate;
         }
 
         public DataEntities.User ConvertToEntity()
@@ -40,6 +64,10 @@ namespace HubModels
             p.UserID = p.UserID;
             p.Username = p.Username;
             p.Password = p.Password;
+            p.CreatedBy = this.CreatedBy;
+            p.CreatedDate = this.CreatedDate;
+            p.ModifiedBy = p.ModifiedBy;
+            p.ModifiedDate = p.ModifiedDate;
 
             return p;
         }

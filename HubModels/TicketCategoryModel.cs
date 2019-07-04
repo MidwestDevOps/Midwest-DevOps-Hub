@@ -16,6 +16,26 @@ namespace HubModels
             get; set;
         }
 
+        public int? CreatedBy
+        {
+            get; set;
+        }
+
+        public DateTime? CreatedDate
+        {
+            get; set;
+        }
+
+        public int? ModifiedBy
+        {
+            get; set;
+        }
+
+        public DateTime? ModifiedDate
+        {
+            get; set;
+        }
+
         public TicketCategoryModel()
         {
 
@@ -25,6 +45,10 @@ namespace HubModels
         {
             this.TicketCategoryID = p.TicketCategoryID;
             this.Name = p.Name;
+            this.CreatedBy = p.CreatedBy;
+            this.CreatedDate = p.CreatedDate;
+            this.ModifiedBy = p.ModifiedBy;
+            this.ModifiedDate = p.ModifiedDate;
         }
 
         public DataEntities.TicketCategory ConvertToEntity()
@@ -33,6 +57,10 @@ namespace HubModels
 
             p.TicketCategoryID = this.TicketCategoryID;
             p.Name = this.Name;
+            p.CreatedBy = this.CreatedBy;
+            p.CreatedDate = this.CreatedDate;
+            p.ModifiedBy = p.ModifiedBy;
+            p.ModifiedDate = p.ModifiedDate;
 
             return p;
         }

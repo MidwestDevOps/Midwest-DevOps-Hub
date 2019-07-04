@@ -136,6 +136,10 @@ namespace DatabaseLogicLayer
             p.PriorityName = DBUtilities.ReturnSafeString(reader, "PriorityName");
             p.Subject = DBUtilities.ReturnSafeString(reader, "Subject");
             p.Issue = DBUtilities.ReturnSafeString(reader, "Issue");
+            p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
+            p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
+            p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");
+            p.ModifiedDate = DBUtilities.ReturnSafeDateTime(reader, "ModifiedDate");
 
             return p;
         }

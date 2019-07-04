@@ -36,6 +36,26 @@ namespace HubModels
             get; set;
         }
 
+        public int? CreatedBy
+        {
+            get; set;
+        }
+
+        public DateTime? CreatedDate
+        {
+            get; set;
+        }
+
+        public int? ModifiedBy
+        {
+            get; set;
+        }
+
+        public DateTime? ModifiedDate
+        {
+            get; set;
+        }
+
         public TicketModel()
         {
 
@@ -49,6 +69,10 @@ namespace HubModels
             this.PriorityID = p.PriorityID;
             this.Subject = p.Subject;
             this.Issue = p.Issue;
+            this.CreatedBy = p.CreatedBy;
+            this.CreatedDate = p.CreatedDate;
+            this.ModifiedBy = p.ModifiedBy;
+            this.ModifiedDate = p.ModifiedDate;
         }
 
         public DataEntities.Ticket ConvertToEntity()
@@ -61,6 +85,10 @@ namespace HubModels
             p.PriorityID = this.PriorityID;
             p.Subject = this.Subject;
             p.Issue = this.Issue;
+            p.CreatedBy = this.CreatedBy;
+            p.CreatedDate = this.CreatedDate;
+            p.ModifiedBy = p.ModifiedBy;
+            p.ModifiedDate = p.ModifiedDate;
 
             return p;
         }

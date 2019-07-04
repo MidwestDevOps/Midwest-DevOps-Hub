@@ -21,7 +21,22 @@ namespace HubModels
             get; set;
         }
 
+        public int? CreatedBy
+        {
+            get; set;
+        }
+
         public DateTime? CreatedDate
+        {
+            get; set;
+        }
+
+        public int? ModifiedBy
+        {
+            get; set;
+        }
+
+        public DateTime? ModifiedDate
         {
             get; set;
         }
@@ -36,7 +51,10 @@ namespace HubModels
             this.ProjectID = p.ProjectID;
             this.Name = p.Name;
             this.Description = p.Description;
+            this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
+            this.ModifiedBy = p.ModifiedBy;
+            this.ModifiedDate = p.ModifiedDate;
         }
 
         public DataEntities.Project ConvertToEntity()
@@ -46,7 +64,10 @@ namespace HubModels
             p.ProjectID = this.ProjectID;
             p.Name = this.Name;
             p.Description = this.Description;
+            p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
+            p.ModifiedBy = p.ModifiedBy;
+            p.ModifiedDate = p.ModifiedDate;
 
             return p;
         }

@@ -123,6 +123,10 @@ namespace DatabaseLogicLayer
 
             p.TicketPriorityID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "TicketPriorityID"));
             p.Name = DBUtilities.ReturnSafeString(reader, "Name");
+            p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
+            p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
+            p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");
+            p.ModifiedDate = DBUtilities.ReturnSafeDateTime(reader, "ModifiedDate");
 
             return p;
         }

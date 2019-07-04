@@ -149,6 +149,10 @@ namespace DatabaseLogicLayer
             p.UserID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "UserID"));
             p.Username = DBUtilities.ReturnSafeString(reader, "Username");
             p.Password = DBUtilities.ReturnSafeString(reader, "Password");
+            p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
+            p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
+            p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");
+            p.ModifiedDate = DBUtilities.ReturnSafeDateTime(reader, "ModifiedDate");
 
             return p;
         }
