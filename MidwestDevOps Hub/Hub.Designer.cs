@@ -37,6 +37,7 @@
             this.ticketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +86,8 @@
             // 
             this.ticketsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createTicketToolStripMenuItem,
-            this.viewTicketsToolStripMenuItem});
+            this.viewTicketsToolStripMenuItem,
+            this.openTicketToolStripMenuItem});
             this.ticketsToolStripMenuItem.Name = "ticketsToolStripMenuItem";
             this.ticketsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.ticketsToolStripMenuItem.Text = "Tickets";
@@ -93,18 +95,25 @@
             // createTicketToolStripMenuItem
             // 
             this.createTicketToolStripMenuItem.Name = "createTicketToolStripMenuItem";
-            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.createTicketToolStripMenuItem.Text = "Create Ticket";
             this.createTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // viewTicketsToolStripMenuItem
             // 
             this.viewTicketsToolStripMenuItem.Name = "viewTicketsToolStripMenuItem";
-            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewTicketsToolStripMenuItem.Text = "View Tickets";
             this.viewTicketsToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
-            // Form1
+            // openTicketToolStripMenuItem
+            // 
+            this.openTicketToolStripMenuItem.Name = "openTicketToolStripMenuItem";
+            this.openTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openTicketToolStripMenuItem.Text = "Open Ticket";
+            this.openTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
+            // 
+            // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -113,7 +122,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Hub";
             this.Text = "Midwest DevOps Hub";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -131,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem ticketsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createTicketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewTicketsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openTicketToolStripMenuItem;
     }
 }
 

@@ -113,7 +113,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
         {
             foreach (var i in tickets)
             {
-                string[] row = { i.Subject, i.ProjectName, i.CategoryName };
+                string[] row = { i.TicketID.ToString(), i.Subject, i.ProjectName, i.CategoryName };
 
                 if (ltvTickets.InvokeRequired)
                 {
@@ -140,7 +140,14 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
+            if (ltvTickets.SelectedItems[0] != null)
+            {
+                var s = ltvTickets.SelectedItems[0].Text;
 
+                ShowTicket addEditProject = new ShowTicket(MainForm, Convert.ToInt32(ltvTickets.SelectedItems[0].Text));
+                addEditProject.MdiParent = MainForm;
+                addEditProject.Show();
+            }
         }
     }
 }

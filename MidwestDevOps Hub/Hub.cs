@@ -49,6 +49,11 @@ namespace MidwestDevOps_Hub
                     showTickets.MdiParent = this;
                     showTickets.Show();
                     break;
+                case "Open Ticket":
+                    OpenTicketID openTicket = new OpenTicketID(this);
+                    openTicket.MdiParent = this;
+                    openTicket.Show();
+                    break;
             }
         }
     }

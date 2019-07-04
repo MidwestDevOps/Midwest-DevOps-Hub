@@ -107,10 +107,6 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             {
                 UpdateProjectComboBox(projects);
             }
-
-            cbProject.DataSource = ProjectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
-            cbProject.DisplayMember = "Name";
-            cbProject.ValueMember = "ProjectID";
         }
 
         private void UpdateCategoryComboBox()
@@ -125,10 +121,6 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             {
                 UpdateCategoryComboBox(categories);
             }
-
-            cbCategory.DataSource = CategoryBLL.GetAllCategories().OrderBy(x => x.Name).ToList();
-            cbCategory.DisplayMember = "Name";
-            cbCategory.ValueMember = "TicketCategoryID";
         }
 
         private void UpdatePriorityComboBox()
@@ -143,23 +135,19 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             {
                 UpdatePriorityComboBox(priorities);
             }
-
-            cbPriority.DataSource = PriorityBLL.GetAllPriorities().OrderBy(x => x.Name).ToList();
-            cbPriority.DisplayMember = "Name";
-            cbPriority.ValueMember = "TicketPriorityID";
         }
 
         private void UpdateProjectComboBox(List<DataEntities.Project> projects)
         {
             if (cbProject.InvokeRequired)
             {
-                cbProject.Invoke(new MethodInvoker(() => cbProject.DataSource = projects));
+                cbProject.Invoke(new MethodInvoker(() => cbProject.DataSource = projects.ToList()));
                 cbProject.Invoke(new MethodInvoker(() => cbProject.DisplayMember = "Name"));
                 cbProject.Invoke(new MethodInvoker(() => cbProject.ValueMember = "ProjectID"));
             }
             else
             {
-                cbProject.DataSource = projects;
+                cbProject.DataSource = projects.ToList();
                 cbProject.DisplayMember = "Name";
                 cbProject.ValueMember = "ProjectID";
             }
@@ -169,13 +157,13 @@ namespace MidwestDevOps_Hub.Forms.Ticket
         {
             if (cbProject.InvokeRequired)
             {
-                cbCategory.Invoke(new MethodInvoker(() => cbCategory.DataSource = categories));
+                cbCategory.Invoke(new MethodInvoker(() => cbCategory.DataSource = categories.OrderBy(x => x.Name).ToList()));
                 cbCategory.Invoke(new MethodInvoker(() => cbCategory.DisplayMember = "Name"));
                 cbCategory.Invoke(new MethodInvoker(() => cbCategory.ValueMember = "TicketCategoryID"));
             }
             else
             {
-                cbCategory.DataSource = categories;
+                cbCategory.DataSource = categories.OrderBy(x => x.Name).ToList();
                 cbCategory.DisplayMember = "Name";
                 cbCategory.ValueMember = "TicketCategoryID";
             }
@@ -185,13 +173,13 @@ namespace MidwestDevOps_Hub.Forms.Ticket
         {
             if (cbPriority.InvokeRequired)
             {
-                cbPriority.Invoke(new MethodInvoker(() => cbPriority.DataSource = priorities));
+                cbPriority.Invoke(new MethodInvoker(() => cbPriority.DataSource = priorities.OrderBy(x => x.Name).ToList()));
                 cbPriority.Invoke(new MethodInvoker(() => cbPriority.DisplayMember = "Name"));
                 cbPriority.Invoke(new MethodInvoker(() => cbPriority.ValueMember = "TicketPriorityID"));
             }
             else
             {
-                cbPriority.DataSource = priorities;
+                cbPriority.DataSource = priorities.OrderBy(x => x.Name).ToList();
                 cbPriority.DisplayMember = "Name";
                 cbPriority.ValueMember = "TicketPriorityID";
             }
@@ -230,6 +218,10 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             if (id != null)
             {
                 MessageBox.Show("Successfully created ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowTicket showTicket = new ShowTicket(MainForm, id == null ? (int?)null : Convert.ToInt32(id));
+                showTicket.MdiParent = MainForm;
+                showTicket.Show();
+                this.Close();
             }
             else
             {
