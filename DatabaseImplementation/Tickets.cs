@@ -91,12 +91,12 @@ namespace DatabaseLogicLayer
 
                 if (p.TicketID == null)
                 {
-                    sql = @"INSERT INTO `ticket` (`TicketID`, `ProjectID`, `CategoryID`, `PriorityID`, `Subject`, `Issue`) VALUES (NULL, @ProjectID, @CategoryID, @PriorityID, @Subject, @Issue);
+                    sql = @"INSERT INTO `ticket` (`TicketID`, `ProjectID`, `CategoryID`, `PriorityID`, `Subject`, `Issue`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @ProjectID, @CategoryID, @PriorityID, @Subject, @Issue, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticket` SET TicketID = @ID, ProjectID = @ProjectID, CategoryID = @CategoryID, PriorityID = @PriorityID, Subject = @Subject, Issue = @Issue WHERE TicketID = @ID;";
+                    sql = @"UPDATE `ticket` SET TicketID = @ID, ProjectID = @ProjectID, CategoryID = @CategoryID, PriorityID = @PriorityID, Subject = @Subject, Issue = @Issue, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE TicketID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -107,6 +107,10 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@PriorityID", p.PriorityID);
                 cmd.Parameters.AddWithValue("@Subject", p.Subject);
                 cmd.Parameters.AddWithValue("@Issue", p.Issue);
+                cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
+                cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
+                cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
+                cmd.Parameters.AddWithValue("@ModifiedDate", p.ModifiedDate);
 
 
 
