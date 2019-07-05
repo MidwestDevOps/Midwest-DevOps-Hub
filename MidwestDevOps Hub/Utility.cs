@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using System.Reflection;
 
 namespace MidwestDevOps_Hub
 {
@@ -7,7 +8,9 @@ namespace MidwestDevOps_Hub
     {
         public static string GetConnectionString()
         {
-            return JsonConvert.DeserializeObject<HubModels.Connection>(File.ReadAllText(@"C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\connection.json")).DatabaseConnection;
+            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"connection.json");
+
+            return JsonConvert.DeserializeObject<HubModels.Connection>(File.ReadAllText(path)).DatabaseConnection;
         }
     }
 }

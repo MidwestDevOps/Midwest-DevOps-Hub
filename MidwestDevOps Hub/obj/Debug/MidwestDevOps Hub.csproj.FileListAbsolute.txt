@@ -241,3 +241,4 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Login.Login.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.OpenTicketID.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTicket.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\connection.json
