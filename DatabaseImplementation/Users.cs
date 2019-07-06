@@ -113,12 +113,12 @@ namespace DatabaseLogicLayer
 
                 if (p.UserID == null)
                 {
-                    sql = @"INSERT INTO `user` (`UserID`, `Username`, `Password`) VALUES (NULL, @Username, @Password);
+                    sql = @"INSERT INTO `user` (`UserID`, `Username`, `Password`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @Username, @Password, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `user` SET UserID = @ID, Username = @Username, Password = @Password, WHERE UserID = @ID;";
+                    sql = @"UPDATE `user` SET UserID = @ID, Username = @Username, Password = @Password, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE UserID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
