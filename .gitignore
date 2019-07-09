@@ -75,3 +75,61 @@ MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.GenerateResource.cache
 MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csprojAssemblyReference.cache
 MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.exe
 MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.pdb
+*.cache
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-shm
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-wal
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.cache
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.g.props
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.assets.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csproj.CoreCompileInputs.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csprojAssemblyReference.cache
+BusinessImplementation/obj/project.assets.json
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.cache
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.g.props
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.assets.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csproj.CoreCompileInputs.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csprojAssemblyReference.cache
+DatabaseImplementation/obj/project.assets.json
+DataEntities/obj/DataEntities.csproj.nuget.cache
+DataEntities/obj/DataEntities.csproj.nuget.g.props
+DataEntities/obj/Debug/netstandard2.0/DataEntities.assets.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csproj.CoreCompileInputs.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csprojAssemblyReference.cache
+DataEntities/obj/project.assets.json
+HubModels/obj/Debug/netstandard2.0/HubModels.assets.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csproj.CoreCompileInputs.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csprojAssemblyReference.cache
+HubModels/obj/HubModels.csproj.nuget.cache
+HubModels/obj/HubModels.csproj.nuget.g.props
+HubModels/obj/project.assets.json
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.CoreCompileInputs.cache
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csprojAssemblyReference.cache
+.vs/MidwestDevOps Hub/v15/.suo
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-shm
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-wal
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.cache
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.g.props
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.assets.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csproj.CoreCompileInputs.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csprojAssemblyReference.cache
+BusinessImplementation/obj/project.assets.json
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.cache
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.g.props
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.assets.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csproj.CoreCompileInputs.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csprojAssemblyReference.cache
+DatabaseImplementation/obj/project.assets.json
+DataEntities/obj/DataEntities.csproj.nuget.cache
+DataEntities/obj/DataEntities.csproj.nuget.g.props
+DataEntities/obj/Debug/netstandard2.0/DataEntities.assets.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csproj.CoreCompileInputs.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csprojAssemblyReference.cache
+DataEntities/obj/project.assets.json
+HubModels/obj/Debug/netstandard2.0/HubModels.assets.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csproj.CoreCompileInputs.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csprojAssemblyReference.cache
+HubModels/obj/HubModels.csproj.nuget.cache
+HubModels/obj/HubModels.csproj.nuget.g.props
+HubModels/obj/project.assets.json
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.CoreCompileInputs.cache
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csprojAssemblyReference.cache
