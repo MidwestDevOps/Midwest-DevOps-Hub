@@ -1,3 +1,77 @@
 
 .vs/MidwestDevOps Hub/v15/Server/sqlite3/db.lock
 HubModels/Connection.cs
+BusinessImplementation/bin/Debug/
+.vs/MidwestDevOps Hub/v15/.suo
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-shm
+.vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-wal
+BusinessImplementation/bin/Debug/netstandard2.0/BusinessLogicLayer.deps.json
+BusinessImplementation/bin/Debug/netstandard2.0/BusinessLogicLayer.dll
+BusinessImplementation/bin/Debug/netstandard2.0/BusinessLogicLayer.pdb
+BusinessImplementation/bin/Debug/netstandard2.0/DatabaseLogicLayer.dll
+BusinessImplementation/bin/Debug/netstandard2.0/DatabaseLogicLayer.pdb
+BusinessImplementation/bin/Debug/netstandard2.0/DataEntities.dll
+BusinessImplementation/bin/Debug/netstandard2.0/DataEntities.pdb
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.cache
+BusinessImplementation/obj/BusinessLogicLayer.csproj.nuget.g.props
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.assets.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csproj.CoreCompileInputs.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csproj.FileListAbsolute.txt
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.csprojAssemblyReference.cache
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.dll
+BusinessImplementation/obj/Debug/netstandard2.0/BusinessLogicLayer.pdb
+BusinessImplementation/obj/project.assets.json
+DatabaseImplementation/bin/Debug/netstandard2.0/DatabaseLogicLayer.deps.json
+DatabaseImplementation/bin/Debug/netstandard2.0/DatabaseLogicLayer.dll
+DatabaseImplementation/bin/Debug/netstandard2.0/DatabaseLogicLayer.pdb
+DatabaseImplementation/bin/Debug/netstandard2.0/DataEntities.dll
+DatabaseImplementation/bin/Debug/netstandard2.0/DataEntities.pdb
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.cache
+DatabaseImplementation/obj/DatabaseLogicLayer.csproj.nuget.g.props
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.assets.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csproj.CoreCompileInputs.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csproj.FileListAbsolute.txt
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.csprojAssemblyReference.cache
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.dll
+DatabaseImplementation/obj/Debug/netstandard2.0/DatabaseLogicLayer.pdb
+DatabaseImplementation/obj/project.assets.json
+DataEntities/bin/Debug/netstandard2.0/DataEntities.dll
+DataEntities/bin/Debug/netstandard2.0/DataEntities.pdb
+DataEntities/obj/DataEntities.csproj.nuget.cache
+DataEntities/obj/DataEntities.csproj.nuget.g.props
+DataEntities/obj/Debug/netstandard2.0/DataEntities.assets.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csproj.CoreCompileInputs.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csproj.FileListAbsolute.txt
+DataEntities/obj/Debug/netstandard2.0/DataEntities.csprojAssemblyReference.cache
+DataEntities/obj/Debug/netstandard2.0/DataEntities.dll
+DataEntities/obj/Debug/netstandard2.0/DataEntities.pdb
+DataEntities/obj/project.assets.json
+HubModels/bin/Debug/netstandard2.0/DataEntities.dll
+HubModels/bin/Debug/netstandard2.0/DataEntities.pdb
+HubModels/bin/Debug/netstandard2.0/HubModels.dll
+HubModels/bin/Debug/netstandard2.0/HubModels.pdb
+HubModels/obj/Debug/netstandard2.0/HubModels.assets.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csproj.CoreCompileInputs.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.csproj.FileListAbsolute.txt
+HubModels/obj/Debug/netstandard2.0/HubModels.csprojAssemblyReference.cache
+HubModels/obj/Debug/netstandard2.0/HubModels.dll
+HubModels/obj/Debug/netstandard2.0/HubModels.pdb
+HubModels/obj/HubModels.csproj.nuget.cache
+HubModels/obj/HubModels.csproj.nuget.g.props
+HubModels/obj/project.assets.json
+MidwestDevOps Hub/bin/Debug/BusinessLogicLayer.dll
+MidwestDevOps Hub/bin/Debug/BusinessLogicLayer.pdb
+MidwestDevOps Hub/bin/Debug/DatabaseLogicLayer.dll
+MidwestDevOps Hub/bin/Debug/DatabaseLogicLayer.pdb
+MidwestDevOps Hub/bin/Debug/DataEntities.dll
+MidwestDevOps Hub/bin/Debug/DataEntities.pdb
+MidwestDevOps Hub/bin/Debug/HubModels.dll
+MidwestDevOps Hub/bin/Debug/HubModels.pdb
+MidwestDevOps Hub/bin/Debug/MidwestDevOps Hub.exe
+MidwestDevOps Hub/bin/Debug/MidwestDevOps Hub.pdb
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.CoreCompileInputs.cache
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.FileListAbsolute.txt
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.GenerateResource.cache
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csprojAssemblyReference.cache
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.exe
+MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.pdb
