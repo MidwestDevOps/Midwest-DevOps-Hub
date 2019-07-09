@@ -91,18 +91,22 @@ namespace DatabaseLogicLayer
 
                 if (p.TicketCategoryID == null)
                 {
-                    sql = @"INSERT INTO `ticketcategory` (`TicketCategoryID`, `Name`) VALUES (NULL, @Name);
+                    sql = @"INSERT INTO `ticketcategory` (`TicketCategoryID`, `Name`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @Name, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticketcategory` SET TicketCategoryID = @ID, Name = @Name WHERE TicketCategoryID = @ID;";
+                    sql = @"UPDATE `ticketcategory` SET TicketCategoryID = @ID, Name = @Name, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE TicketCategoryID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@ID", p.TicketCategoryID);
                 cmd.Parameters.AddWithValue("@Name", p.Name);
+                cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
+                cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
+                cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
+                cmd.Parameters.AddWithValue("@ModifiedDate", p.ModifiedDate);
 
                 if (p.TicketCategoryID == null) //Get new id number
                 {

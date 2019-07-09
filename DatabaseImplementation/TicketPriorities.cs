@@ -91,12 +91,12 @@ namespace DatabaseLogicLayer
 
                 if (p.TicketPriorityID == null)
                 {
-                    sql = @"INSERT INTO `ticketpriority` (`TicketPriorityID`, `Name`) VALUES (NULL, @Name);
+                    sql = @"INSERT INTO `ticketpriority` (`TicketPriorityID`, `Name`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @Name, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticketpriority` SET TicketPriorityID = @ID, Name = @Name WHERE TicketPriorityID = @ID;";
+                    sql = @"UPDATE `ticketpriority` SET TicketPriorityID = @ID, Name = @Name, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE TicketPriorityID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);

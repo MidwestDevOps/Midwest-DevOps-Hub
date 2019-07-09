@@ -213,6 +213,9 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             t.Subject = txtSubject.Text;
             t.Issue = rtbIssue.Text;
 
+            t.CreatedBy = 0;
+            t.CreatedDate = DateTime.Now;
+
             long? id = TicketBLL.SaveTicket(t.ConvertToEntity());
 
             if (id != null)
