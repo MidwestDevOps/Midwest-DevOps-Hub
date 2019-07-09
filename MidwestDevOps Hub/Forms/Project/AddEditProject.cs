@@ -121,6 +121,7 @@ namespace MidwestDevOps_Hub.Forms
             p.Name = txtName.Text;
             p.Description = rtbDescription.Text;
             p.CreatedDate = DateTime.UtcNow;
+            p.CreatedBy = 0;
 
             long? id = ProjectBLL.SaveProject(p.ConvertToEntity());
 
