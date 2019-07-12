@@ -172,3 +172,5 @@ MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.GenerateResource.cache
 MidwestDevOps Hub/obj/Debug/MidwestDevOps Hub.csproj.CoreCompileInputs.cache
 .vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-wal
 .vs/MidwestDevOps Hub/v15/Server/sqlite3/storage.ide-shm
+.vs/MidwestDevOps Hub/v15/.suo
+MidwestDevOps Hub/connection.json
