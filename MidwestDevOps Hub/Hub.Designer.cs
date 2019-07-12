@@ -95,21 +95,21 @@
             // createTicketToolStripMenuItem
             // 
             this.createTicketToolStripMenuItem.Name = "createTicketToolStripMenuItem";
-            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.createTicketToolStripMenuItem.Text = "Create Ticket";
             this.createTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // viewTicketsToolStripMenuItem
             // 
             this.viewTicketsToolStripMenuItem.Name = "viewTicketsToolStripMenuItem";
-            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.viewTicketsToolStripMenuItem.Text = "View Tickets";
             this.viewTicketsToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // openTicketToolStripMenuItem
             // 
             this.openTicketToolStripMenuItem.Name = "openTicketToolStripMenuItem";
-            this.openTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.openTicketToolStripMenuItem.Text = "Open Ticket";
             this.openTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
@@ -123,8 +123,8 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Hub";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Midwest DevOps Hub";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

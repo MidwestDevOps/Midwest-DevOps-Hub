@@ -137,7 +137,6 @@
     <Compile Include="Initialize.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurePasswordHasher.cs" />
     <Compile Include="Utility.cs" />
     <EmbeddedResource Include="Forms\Ticket\OpenTicketID.resx">
       <DependentUpon>OpenTicketID.cs</DependentUpon>

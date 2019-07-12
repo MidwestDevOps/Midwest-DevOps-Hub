@@ -37,6 +37,12 @@ namespace BusinessLogicLayer
 
         #endregion
 
+        public bool VerifyPassword(DataEntities.User user, string userPassword)
+        {
+            string s = TextHasher.Hash(userPassword, user.UUID);
+            return TextHasher.Verify(userPassword, user.Password, user.UUID);
+        }
+
         public List<DataEntities.User> GetAllUsers()
         {
             try

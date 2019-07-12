@@ -42,7 +42,7 @@ namespace MidwestDevOps_Hub.Forms.Login
 
             if (user != null)
             {
-                if (SecurePasswordHasher.Verify(txtPassword.Text, user.Password))
+                if (UserBLL.VerifyPassword(user, txtPassword.Text))
                 {
                     this.Hide();
                     Hub f = new Hub();

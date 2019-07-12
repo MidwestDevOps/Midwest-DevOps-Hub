@@ -147,6 +147,7 @@ namespace DatabaseLogicLayer
             DataEntities.User p = new DataEntities.User();
 
             p.UserID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "UserID"));
+            p.UUID = DBUtilities.ReturnSafeString(reader, "UUID");
             p.Username = DBUtilities.ReturnSafeString(reader, "Username");
             p.Password = DBUtilities.ReturnSafeString(reader, "Password");
             p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");

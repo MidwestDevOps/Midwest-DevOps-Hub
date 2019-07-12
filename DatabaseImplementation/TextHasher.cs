@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MidwestDevOps_Hub
+namespace BusinessLogicLayer
 {
-    public static class SecurePasswordHasher
+    public static class TextHasher
     {
         /// <summary>
         /// Size of salt.
@@ -44,7 +44,7 @@ namespace MidwestDevOps_Hub
             var base64Hash = Convert.ToBase64String(hashBytes);
 
             // Format hash with extra information
-            return string.Format("$MYHASH$V1${0}${1}", iterations, base64Hash);
+            return string.Format("$HASH${0}${1}", iterations, base64Hash);
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace MidwestDevOps_Hub
         /// </summary>
         /// <param name="password">The password.</param>
         /// <returns>The hash.</returns>
-        public static string Hash(string password)
+        public static string Hash(string password, string addition)
         {
-            return Hash(password, 10000);
+            return Hash(addition.Substring(0, addition.Length / 2) + password + addition.Substring(addition.Length / 2, addition.Length / 2), 10000);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace MidwestDevOps_Hub
         /// <returns>Is supported?</returns>
         public static bool IsHashSupported(string hashString)
         {
-            return hashString.Contains("$MYHASH$V1$");
+            return hashString.Contains("$HASH$");
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace MidwestDevOps_Hub
         /// <param name="password">The password.</param>
         /// <param name="hashedPassword">The hash.</param>
         /// <returns>Could be verified?</returns>
-        public static bool Verify(string password, string hashedPassword)
+        public static bool Verify(string password, string hashedPassword, string addition)
         {
             // Check hash
             if (!IsHashSupported(hashedPassword))
@@ -82,7 +82,7 @@ namespace MidwestDevOps_Hub
             }
 
             // Extract iteration and Base64 string
-            var splittedHashString = hashedPassword.Replace("$MYHASH$V1$", "").Split('$');
+            var splittedHashString = hashedPassword.Replace("$HASH$", "").Split('$');
             var iterations = int.Parse(splittedHashString[0]);
             var base64Hash = splittedHashString[1];
 
@@ -94,7 +94,7 @@ namespace MidwestDevOps_Hub
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
 
             // Create hash with given salt
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
+            var pbkdf2 = new Rfc2898DeriveBytes(addition.Substring(0, addition.Length/2) + password + addition.Substring(addition.Length / 2, addition.Length / 2), salt, iterations);
             byte[] hash = pbkdf2.GetBytes(HashSize);
 
             // Get result
