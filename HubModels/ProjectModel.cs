@@ -66,8 +66,8 @@ namespace HubModels
             p.Description = this.Description;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
-            p.ModifiedBy = p.ModifiedBy;
-            p.ModifiedDate = p.ModifiedDate;
+            p.ModifiedBy = this.ModifiedBy;
+            p.ModifiedDate = this.ModifiedDate;
 
             return p;
         }

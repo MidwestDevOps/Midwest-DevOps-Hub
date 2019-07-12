@@ -21,6 +21,11 @@ namespace HubModels
             get; set;
         }
 
+        public bool Active
+        {
+            get; set;
+        }
+
         public int? CreatedBy
         {
             get; set;
@@ -51,6 +56,7 @@ namespace HubModels
             this.UserID = p.UserID;
             this.Username = p.Username;
             this.Password = p.Password;
+            this.Active = p.Active;
             this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
             this.ModifiedBy = p.ModifiedBy;
@@ -61,13 +67,14 @@ namespace HubModels
         {
             DataEntities.User p = new DataEntities.User();
 
-            p.UserID = p.UserID;
-            p.Username = p.Username;
-            p.Password = p.Password;
+            p.UserID = this.UserID;
+            p.Username = this.Username;
+            p.Password = this.Password;
+            p.Active = this.Active;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
-            p.ModifiedBy = p.ModifiedBy;
-            p.ModifiedDate = p.ModifiedDate;
+            p.ModifiedBy = this.ModifiedBy;
+            p.ModifiedDate = this.ModifiedDate;
 
             return p;
         }

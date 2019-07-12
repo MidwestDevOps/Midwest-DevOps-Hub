@@ -64,5 +64,10 @@ namespace DatabaseLogicLayer
                 return null;
             }
         }
+
+        public static bool ReturnBoolean(MySqlDataReader reader, String columnName)
+        {
+            return reader.GetString(columnName) == "1" ? true : false;
+        }
     }
 }

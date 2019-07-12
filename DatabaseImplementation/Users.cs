@@ -150,6 +150,7 @@ namespace DatabaseLogicLayer
             p.UUID = DBUtilities.ReturnSafeString(reader, "UUID");
             p.Username = DBUtilities.ReturnSafeString(reader, "Username");
             p.Password = DBUtilities.ReturnSafeString(reader, "Password");
+            p.Active = DBUtilities.ReturnBoolean(reader, "Active");
             p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
             p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");
