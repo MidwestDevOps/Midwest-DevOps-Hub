@@ -113,12 +113,12 @@ namespace DatabaseLogicLayer
 
                 if (p.UserID == null)
                 {
-                    sql = @"INSERT INTO `user` (`UserID`, `Username`, `Password`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @Username, @Password, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
+                    sql = @"INSERT INTO `user` (`UserID`, `Username`, `Password`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `Active`) VALUES (NULL, @Username, @Password, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate, @Active);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `user` SET UserID = @ID, Username = @Username, Password = @Password, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE UserID = @ID;";
+                    sql = @"UPDATE `user` SET UserID = @ID, Username = @Username, Password = @Password, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate, Active = @Active WHERE UserID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -126,6 +126,11 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@ID", p.UserID);
                 cmd.Parameters.AddWithValue("@Username", p.Username);
                 cmd.Parameters.AddWithValue("@Password", p.Password);
+                cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
+                cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
+                cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
+                cmd.Parameters.AddWithValue("@ModifiedDate", p.ModifiedDate);
+                cmd.Parameters.AddWithValue("@Active", p.Active);
 
 
 

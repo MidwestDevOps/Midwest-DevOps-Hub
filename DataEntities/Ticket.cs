@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataEntities
 {
-    public class Ticket
+    public class Ticket : BaseEntity
     {
         public int? TicketID
         {
@@ -47,26 +47,6 @@ namespace DataEntities
         }
 
         public string Issue
-        {
-            get; set;
-        }
-
-        public int? CreatedBy
-        {
-            get; set;
-        }
-
-        public DateTime? CreatedDate
-        {
-            get; set;
-        }
-
-        public int? ModifiedBy
-        {
-            get; set;
-        }
-
-        public DateTime? ModifiedDate
         {
             get; set;
         }

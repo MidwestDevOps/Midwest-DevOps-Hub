@@ -215,6 +215,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
             t.CreatedBy = 0;
             t.CreatedDate = DateTime.Now;
+            t.Active = true;
 
             long? id = TicketBLL.SaveTicket(t.ConvertToEntity());
 

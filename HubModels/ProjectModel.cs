@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HubModels
 {
-    public class ProjectModel
+    public class ProjectModel : BaseModel
     {
         public int? ProjectID
         {
@@ -21,26 +21,6 @@ namespace HubModels
             get; set;
         }
 
-        public int? CreatedBy
-        {
-            get; set;
-        }
-
-        public DateTime? CreatedDate
-        {
-            get; set;
-        }
-
-        public int? ModifiedBy
-        {
-            get; set;
-        }
-
-        public DateTime? ModifiedDate
-        {
-            get; set;
-        }
-
         public ProjectModel()
         {
 
@@ -51,6 +31,7 @@ namespace HubModels
             this.ProjectID = p.ProjectID;
             this.Name = p.Name;
             this.Description = p.Description;
+            this.Active = p.Active;
             this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
             this.ModifiedBy = p.ModifiedBy;
@@ -64,6 +45,7 @@ namespace HubModels
             p.ProjectID = this.ProjectID;
             p.Name = this.Name;
             p.Description = this.Description;
+            p.Active = this.Active;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
             p.ModifiedBy = this.ModifiedBy;

@@ -91,12 +91,12 @@ namespace DatabaseLogicLayer
 
                 if (p.ProjectID == null)
                 {
-                    sql = @"INSERT INTO `Project` (`ProjectID`, `Name`, `Description`, `CreatedDate`) VALUES (NULL, @Name, @Description, @CreatedDate);
+                    sql = @"INSERT INTO `Project` (`ProjectID`, `Name`, `Description`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `Active`) VALUES (NULL, @Name, @Description, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate, @Active);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `Project` SET ProjectID = @ProjectID, Name = @Name, Description = @Description, CreatedDate = @CreatedDate WHERE ProjectID = @ProjectID;";
+                    sql = @"UPDATE `Project` SET ProjectID = @ProjectID, Name = @Name, Description = @Description, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate, Active = @Active WHERE ProjectID = @ProjectID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -104,7 +104,11 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@ProjectID", p.ProjectID);
                 cmd.Parameters.AddWithValue("@Name", p.Name);
                 cmd.Parameters.AddWithValue("@Description", p.Description);
+                cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
+                cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
+                cmd.Parameters.AddWithValue("@ModifiedDate", p.ModifiedDate);
+                cmd.Parameters.AddWithValue("@Active", p.Active);
 
 
 
@@ -128,6 +132,7 @@ namespace DatabaseLogicLayer
             p.ProjectID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "ProjectID"));
             p.Name = DBUtilities.ReturnSafeString(reader, "Name");
             p.Description = DBUtilities.ReturnSafeString(reader, "Description");
+            p.Active = DBUtilities.ReturnBoolean(reader, "Active");
             p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
             p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");

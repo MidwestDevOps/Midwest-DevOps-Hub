@@ -91,12 +91,12 @@ namespace DatabaseLogicLayer
 
                 if (p.TicketID == null)
                 {
-                    sql = @"INSERT INTO `ticket` (`TicketID`, `ProjectID`, `CategoryID`, `PriorityID`, `Subject`, `Issue`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`) VALUES (NULL, @ProjectID, @CategoryID, @PriorityID, @Subject, @Issue, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate);
+                    sql = @"INSERT INTO `ticket` (`TicketID`, `ProjectID`, `CategoryID`, `PriorityID`, `Subject`, `Issue`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `Active`) VALUES (NULL, @ProjectID, @CategoryID, @PriorityID, @Subject, @Issue, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate, @Active);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticket` SET TicketID = @ID, ProjectID = @ProjectID, CategoryID = @CategoryID, PriorityID = @PriorityID, Subject = @Subject, Issue = @Issue, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate WHERE TicketID = @ID;";
+                    sql = @"UPDATE `ticket` SET TicketID = @ID, ProjectID = @ProjectID, CategoryID = @CategoryID, PriorityID = @PriorityID, Subject = @Subject, Issue = @Issue, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate, Active = @Active WHERE TicketID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -111,6 +111,7 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
                 cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
                 cmd.Parameters.AddWithValue("@ModifiedDate", p.ModifiedDate);
+                cmd.Parameters.AddWithValue("@Active", p.Active);
 
 
 
@@ -140,6 +141,7 @@ namespace DatabaseLogicLayer
             p.PriorityName = DBUtilities.ReturnSafeString(reader, "PriorityName");
             p.Subject = DBUtilities.ReturnSafeString(reader, "Subject");
             p.Issue = DBUtilities.ReturnSafeString(reader, "Issue");
+            p.Active = DBUtilities.ReturnBoolean(reader, "Active");
             p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
             p.ModifiedBy = DBUtilities.ReturnSafeInt(reader, "ModifiedBy");

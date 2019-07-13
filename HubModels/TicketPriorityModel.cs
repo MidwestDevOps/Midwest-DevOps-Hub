@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HubModels
 {
-    class TicketPriorityModel
+    class TicketPriorityModel : BaseModel
     {
         public int? TicketPriorityID
         {
@@ -12,26 +12,6 @@ namespace HubModels
         }
 
         public string Name
-        {
-            get; set;
-        }
-
-        public int? CreatedBy
-        {
-            get; set;
-        }
-
-        public DateTime? CreatedDate
-        {
-            get; set;
-        }
-
-        public int? ModifiedBy
-        {
-            get; set;
-        }
-
-        public DateTime? ModifiedDate
         {
             get; set;
         }
@@ -45,6 +25,7 @@ namespace HubModels
         {
             this.TicketPriorityID = p.TicketPriorityID;
             this.Name = p.Name;
+            this.Active = p.Active;
             this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
             this.ModifiedBy = p.ModifiedBy;
@@ -57,6 +38,7 @@ namespace HubModels
 
             p.TicketPriorityID = this.TicketPriorityID;
             p.Name = this.Name;
+            p.Active = this.Active;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
             p.ModifiedBy = this.ModifiedBy;
