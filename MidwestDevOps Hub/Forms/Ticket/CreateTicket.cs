@@ -97,43 +97,52 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void UpdateProjectComboBox()
         {
-            var projects = ProjectBLL.GetAllProjects();
+            using (var projectBLL = new BusinessLogicLayer.Projects(Utility.GetConnectionString()))
+            {
+                var projects = projectBLL.GetAllProjects();
 
-            if (projects == null)
-            {
-                MessageBox.Show("Couldn't retrieve projects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdateProjectComboBox(projects);
+                if (projects == null)
+                {
+                    MessageBox.Show("Couldn't retrieve projects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdateProjectComboBox(projects);
+                }
             }
         }
 
         private void UpdateCategoryComboBox()
         {
-            var categories = CategoryBLL.GetAllCategories();
+            using (var categoryBLL = new BusinessLogicLayer.TicketCategories(Utility.GetConnectionString()))
+            {
+                var categories = categoryBLL.GetAllCategories();
 
-            if (categories == null)
-            {
-                MessageBox.Show("Couldn't retrieve categories", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdateCategoryComboBox(categories);
+                if (categories == null)
+                {
+                    MessageBox.Show("Couldn't retrieve categories", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdateCategoryComboBox(categories);
+                }
             }
         }
 
         private void UpdatePriorityComboBox()
         {
-            var priorities = PriorityBLL.GetAllPriorities();
+            using (var priorityBLL = new BusinessLogicLayer.TicketPriorities(Utility.GetConnectionString()))
+            {
+                var priorities = priorityBLL.GetAllPriorities();
 
-            if (priorities == null)
-            {
-                MessageBox.Show("Couldn't retrieve priorities", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdatePriorityComboBox(priorities);
+                if (priorities == null)
+                {
+                    MessageBox.Show("Couldn't retrieve priorities", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdatePriorityComboBox(priorities);
+                }
             }
         }
 
@@ -205,31 +214,34 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            HubModels.TicketModel t = new HubModels.TicketModel();
-
-            t.ProjectID = Convert.ToInt32(cbProject.SelectedValue);
-            t.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
-            t.PriorityID = Convert.ToInt32(cbPriority.SelectedValue);
-            t.Subject = txtSubject.Text;
-            t.Issue = rtbIssue.Text;
-
-            t.CreatedBy = 0;
-            t.CreatedDate = DateTime.Now;
-            t.Active = true;
-
-            long? id = TicketBLL.SaveTicket(t.ConvertToEntity());
-
-            if (id != null)
+            using (var ticketBLL = new BusinessLogicLayer.Tickets(Utility.GetConnectionString()))
             {
-                MessageBox.Show("Successfully created ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowTicket showTicket = new ShowTicket(MainForm, id == null ? (int?)null : Convert.ToInt32(id));
-                showTicket.MdiParent = MainForm;
-                showTicket.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Couldn't create ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                HubModels.TicketModel t = new HubModels.TicketModel();
+
+                t.ProjectID = Convert.ToInt32(cbProject.SelectedValue);
+                t.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
+                t.PriorityID = Convert.ToInt32(cbPriority.SelectedValue);
+                t.Subject = txtSubject.Text;
+                t.Issue = rtbIssue.Text;
+
+                t.CreatedBy = 0;
+                t.CreatedDate = DateTime.Now;
+                t.Active = true;
+
+                long? id = ticketBLL.SaveTicket(t.ConvertToEntity());
+
+                if (id != null)
+                {
+                    MessageBox.Show("Successfully created ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowTicket showTicket = new ShowTicket(MainForm, id == null ? (int?)null : Convert.ToInt32(id));
+                    showTicket.MdiParent = MainForm;
+                    showTicket.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Couldn't create ticket", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

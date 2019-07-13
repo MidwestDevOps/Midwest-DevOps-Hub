@@ -38,17 +38,25 @@ namespace MidwestDevOps_Hub.Forms.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            var user = UserBLL.GetUserByUsername(txtUsername.Text);
-
-            if (user != null)
+            using (var userBLL = new BusinessLogicLayer.Users(Utility.GetConnectionString()))
             {
-                if (UserBLL.VerifyPassword(user, txtPassword.Text))
+                var user = userBLL.GetUserByUsername(txtUsername.Text);
+
+                if (user != null)
                 {
-                    this.Hide();
-                    Hub f = new Hub();
-                    f.Closed += (s, args) => this.Close();
-                    f.Show();
+                    if (userBLL.VerifyPassword(user, txtPassword.Text))
+                    {
+                        this.Hide();
+                        Hub f = new Hub();
+                        f.Closed += (s, args) => this.Close();
+                        f.Show();
+                    }
+                    else
+                    {
+                        FormReset();
+
+                        lblErrorMessage.Text = "Username or password is incorrect.";
+                    }
                 }
                 else
                 {
@@ -56,12 +64,6 @@ namespace MidwestDevOps_Hub.Forms.Login
 
                     lblErrorMessage.Text = "Username or password is incorrect.";
                 }
-            }
-            else
-            {
-                FormReset();
-
-                lblErrorMessage.Text = "Username or password is incorrect.";
             }
         }
 

@@ -44,22 +44,26 @@ namespace MidwestDevOps_Hub.Forms
         {
             DataEntities.Project project = null;
 
-            if (projectID.HasValue)
+            using (var projectBLL = new BusinessLogicLayer.Projects(Utility.GetConnectionString()))
             {
-                project = ProjectBLL.GetProjectByID(projectID.Value);
 
-                if (project == null)
+                if (projectID.HasValue)
                 {
-                    MessageBox.Show("Couldn't retrieve project id: " + projectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    project = projectBLL.GetProjectByID(projectID.Value);
+
+                    if (project == null)
+                    {
+                        MessageBox.Show("Couldn't retrieve project id: " + projectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        UpdateProjectData(project, false);
+                    }
                 }
                 else
                 {
-                    UpdateProjectData(project, false);
+                    UpdateProjectData(project, true);
                 }
-            }
-            else
-            {
-                UpdateProjectData(project, true);
             }
         }
 
@@ -115,39 +119,42 @@ namespace MidwestDevOps_Hub.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HubModels.ProjectModel p = new HubModels.ProjectModel();
-
-            p.ProjectID = ProjectID;
-            p.Name = txtName.Text;
-            p.Description = rtbDescription.Text;
-            p.CreatedDate = DateTime.UtcNow;
-            p.CreatedBy = 0;
-            p.Active = true;
-
-            long? id = ProjectBLL.SaveProject(p.ConvertToEntity());
-
-            if (ProjectID != null) //Update
+            using (var projectBLL = new BusinessLogicLayer.Projects(Utility.GetConnectionString()))
             {
-                if (id != null)
+                HubModels.ProjectModel p = new HubModels.ProjectModel();
+
+                p.ProjectID = ProjectID;
+                p.Name = txtName.Text;
+                p.Description = rtbDescription.Text;
+                p.CreatedDate = DateTime.UtcNow;
+                p.CreatedBy = 0;
+                p.Active = true;
+
+                long? id = projectBLL.SaveProject(p.ConvertToEntity());
+
+                if (ProjectID != null) //Update
                 {
-                    MessageBox.Show("Successfully saved project id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (id != null)
+                    {
+                        MessageBox.Show("Successfully saved project id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't save project id: " + ProjectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                else //Create
                 {
-                    MessageBox.Show("Couldn't save project id: " + ProjectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else //Create
-            {
-                if (id != null)
-                {
-                    MessageBox.Show("Successfully created project id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Couldn't save project id: " + ProjectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (id != null)
+                    {
+                        MessageBox.Show("Successfully created project id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't save project id: " + ProjectID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

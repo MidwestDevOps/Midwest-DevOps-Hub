@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BusinessLogicLayer
 {
-    public class TicketCategories
+    public class TicketCategories : IDisposable
     {
 
         #region Boring Stuff
@@ -33,6 +33,12 @@ namespace BusinessLogicLayer
             {
                 return this.sqlConnection;
             }
+        }
+
+        public void Dispose()
+        {
+            if (sqlConnection != null)
+                sqlConnection.Dispose();
         }
 
         #endregion

@@ -104,18 +104,21 @@ namespace MidwestDevOps_Hub.Forms.Ticket
         {
             if (IsDigitsOnly(textBox1.Text))
             {
-                var ticket = TicketBLL.GetTicketByID(Convert.ToInt32(textBox1.Text));
+                using (var ticketBLL = new BusinessLogicLayer.Tickets(Utility.GetConnectionString()))
+                {
+                    var ticket = ticketBLL.GetTicketByID(Convert.ToInt32(textBox1.Text));
 
-                if (ticket != null)
-                {
-                    ShowTicket showTicket = new ShowTicket(MainForm, ticket.TicketID);
-                    showTicket.MdiParent = MainForm;
-                    showTicket.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Couldn't find ticket id: " + textBox1.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (ticket != null)
+                    {
+                        ShowTicket showTicket = new ShowTicket(MainForm, ticket.TicketID);
+                        showTicket.MdiParent = MainForm;
+                        showTicket.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't find ticket id: " + textBox1.Text, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

@@ -97,15 +97,18 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void RefreshTicketData()
         {
-            var tickets = TicketBLL.GetAllTickets();
+            using (var ticketBLL = new BusinessLogicLayer.Tickets(Utility.GetConnectionString()))
+            {
+                var tickets = ticketBLL.GetAllTickets();
 
-            if (tickets == null)
-            {
-                MessageBox.Show("Couldn't retrieve tickets", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdateTicketList(tickets);
+                if (tickets == null)
+                {
+                    MessageBox.Show("Couldn't retrieve tickets", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdateTicketList(tickets);
+                }
             }
         }
 

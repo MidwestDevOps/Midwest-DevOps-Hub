@@ -43,9 +43,13 @@ namespace MidwestDevOps_Hub.Forms
 
         private void RefreshProjectListView()
         {
-            var projects = ProjectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
+            using (var projectBLL = new BusinessLogicLayer.Projects(Utility.GetConnectionString()))
+            {
 
-            UpdateProjectListView(projects);
+                var projects = projectBLL.GetAllProjects().OrderBy(x => x.Name).ToList();
+
+                UpdateProjectListView(projects);
+            }
         }
 
         private void UpdateProjectListView(List<DataEntities.Project> projects)

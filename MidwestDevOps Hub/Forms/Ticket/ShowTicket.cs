@@ -100,58 +100,67 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void UpdateProjectComboBox()
         {
-            var projects = ProjectBLL.GetAllProjects();
+            using (var projectBLL = new BusinessLogicLayer.Projects(Utility.GetConnectionString()))
+            {
+                var projects = projectBLL.GetAllProjects();
 
-            if (projects == null)
-            {
-                MessageBox.Show("Couldn't retrieve projects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdateProjectComboBox(projects);
-            }
+                if (projects == null)
+                {
+                    MessageBox.Show("Couldn't retrieve projects", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdateProjectComboBox(projects);
+                }
 
-            if (Ticket != null)
-            {
-                cbProject.SelectedValue = Ticket.ProjectID;
+                if (Ticket != null)
+                {
+                    cbProject.SelectedValue = Ticket.ProjectID;
+                }
             }
         }
 
         private void UpdateCategoryComboBox()
         {
-            var categories = CategoryBLL.GetAllCategories();
+            using (var categoryBLL = new BusinessLogicLayer.TicketCategories(Utility.GetConnectionString()))
+            {
+                var categories = categoryBLL.GetAllCategories();
 
-            if (categories == null)
-            {
-                MessageBox.Show("Couldn't retrieve categories", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdateCategoryComboBox(categories);
-            }
+                if (categories == null)
+                {
+                    MessageBox.Show("Couldn't retrieve categories", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdateCategoryComboBox(categories);
+                }
 
-            if (Ticket != null)
-            {
-                cbCategory.SelectedValue = Ticket.CategoryID;
+                if (Ticket != null)
+                {
+                    cbCategory.SelectedValue = Ticket.CategoryID;
+                }
             }
         }
 
         private void UpdatePriorityComboBox()
         {
-            var priorities = PriorityBLL.GetAllPriorities();
+            using (var priorityBLL = new BusinessLogicLayer.TicketPriorities(Utility.GetConnectionString()))
+            {
+                var priorities = priorityBLL.GetAllPriorities();
 
-            if (priorities == null)
-            {
-                MessageBox.Show("Couldn't retrieve priorities", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                UpdatePriorityComboBox(priorities);
-            }
+                if (priorities == null)
+                {
+                    MessageBox.Show("Couldn't retrieve priorities", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    UpdatePriorityComboBox(priorities);
+                }
 
-            if (Ticket != null)
-            {
-                cbPriority.SelectedValue = Ticket.PriorityID;
+                if (Ticket != null)
+                {
+                    cbPriority.SelectedValue = Ticket.PriorityID;
+                }
             }
         }
 
@@ -231,36 +240,39 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Ticket.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
-            Ticket.Issue = rtbIssue.Text;
-            Ticket.PriorityID = Convert.ToInt32(cbPriority.SelectedValue);
-            Ticket.ProjectID = Convert.ToInt32(cbProject.SelectedValue);
-            Ticket.Subject = txtSubject.Text;
-
-            long? id = TicketBLL.SaveTicket(Ticket);
-
-            if (id != null)
+            using (var ticketBLL = new BusinessLogicLayer.Tickets(Utility.GetConnectionString()))
             {
+                Ticket.CategoryID = Convert.ToInt32(cbCategory.SelectedValue);
+                Ticket.Issue = rtbIssue.Text;
+                Ticket.PriorityID = Convert.ToInt32(cbPriority.SelectedValue);
+                Ticket.ProjectID = Convert.ToInt32(cbProject.SelectedValue);
+                Ticket.Subject = txtSubject.Text;
+
+                long? id = ticketBLL.SaveTicket(Ticket);
+
                 if (id != null)
                 {
-                    MessageBox.Show("Successfully saved ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (id != null)
+                    {
+                        MessageBox.Show("Successfully saved ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't save ticket id: " + TicketID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                else //Create
                 {
-                    MessageBox.Show("Couldn't save ticket id: " + TicketID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else //Create
-            {
-                if (id != null)
-                {
-                    MessageBox.Show("Successfully created ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Couldn't save ticket id: " + TicketID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (id != null)
+                    {
+                        MessageBox.Show("Successfully created ticket id: " + id, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Couldn't save ticket id: " + TicketID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
