@@ -8,10 +8,16 @@ namespace DataEntities
     {
         public enum ActivityLog
         {
-            SUCCESS = 0,
-            FAILED = 1,
-            ACCESSNOTALLOWED = 2,
-            INPROGRESS = 3
+            SUCCESS = 9,
+            FAILED = 8,
+            ACCESSNOTALLOWED = 7,
+            INPROGRESS = 6
+        }
+
+        public enum Application
+        {
+            WINDOWSNET = 1,
+            MVCNET = 2
         }
     }
 }

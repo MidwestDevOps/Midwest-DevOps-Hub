@@ -31,6 +31,11 @@ namespace DataEntities
             get; set;
         }
 
+        public int ApplicationLID
+        {
+            get; set;
+        }
+
         public int? CreatedBy
         {
             get; set;

@@ -31,6 +31,11 @@ namespace HubModels
             get; set;
         }
 
+        public int ApplicationLID
+        {
+            get; set;
+        }
+
         public int? CreatedBy
         {
             get; set;
@@ -53,6 +58,7 @@ namespace HubModels
             this.Action = p.Action;
             this.Value = p.Value;
             this.ReturnedLID = p.ReturnedLID;
+            this.ApplicationLID = p.ApplicationLID;
             this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
         }
@@ -66,6 +72,7 @@ namespace HubModels
             p.Action = this.Action;
             p.Value = this.Value;
             p.ReturnedLID = this.ReturnedLID;
+            p.ApplicationLID = this.ApplicationLID;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;
 

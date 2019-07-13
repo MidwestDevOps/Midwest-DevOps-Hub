@@ -91,12 +91,12 @@ namespace DatabaseLogicLayer
 
                 if (p.ActivityLogID == null)
                 {
-                    sql = @"INSERT INTO `activitylog` (`ActivityLogID`, `IP`, `Action`, `Value`, `ReturnedLID`, `CreatedBy`, `CreatedDate`) VALUES (NULL, @IP, @Action, @Value, @ReturnedLID, @CreatedBy, @CreatedDate);
+                    sql = @"INSERT INTO `activitylog` (`ActivityLogID`, `IP`, `Action`, `Value`, `ReturnedLID`, `ApplicationLID`, `CreatedBy`, `CreatedDate`) VALUES (NULL, @IP, @Action, @Value, @ReturnedLID, @ApplicationLID, @CreatedBy, @CreatedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticketcategory` SET ActivityLogID = @ID, IP = @IP, Action = @Action, Value = @Value, ReturnedLID = @ReturnedLID, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate WHERE ActivityLogID = @ID;";
+                    sql = @"UPDATE `ticketcategory` SET ActivityLogID = @ID, IP = @IP, Action = @Action, Value = @Value, ReturnedLID = @ReturnedLID, ApplicationLID = @ApplicationLID, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate WHERE ActivityLogID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -106,6 +106,7 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@Action", p.Action);
                 cmd.Parameters.AddWithValue("@Value", p.Value);
                 cmd.Parameters.AddWithValue("@ReturnedLID", p.ReturnedLID);
+                cmd.Parameters.AddWithValue("@ApplicationLID", p.ApplicationLID);
                 cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
 
