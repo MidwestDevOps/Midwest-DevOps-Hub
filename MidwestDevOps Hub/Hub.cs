@@ -1,5 +1,6 @@
 ﻿using MidwestDevOps_Hub.Forms;
 using MidwestDevOps_Hub.Forms.Ticket;
+using MidwestDevOps_Hub.Forms.User;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,8 +19,15 @@ namespace MidwestDevOps_Hub
 {
     public partial class Hub : Form
     {
-        public Hub()
+        public HubModels.UserSessionModel UserSession
         {
+            get; set;
+        }
+
+        public Hub(HubModels.UserSessionModel userSessionModel)
+        {
+            UserSession = userSessionModel;
+
             InitializeComponent();
         }
 
@@ -54,6 +62,22 @@ namespace MidwestDevOps_Hub
                     openTicket.MdiParent = this;
                     openTicket.Show();
                     break;
+                case "View Users":
+                    ShowUsers showUsers = new ShowUsers(this);
+                    showUsers.MdiParent = this;
+                    showUsers.Show();
+                    break;
+            }
+        }
+
+        private void Hub_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
+            {
+                var userSession = UserSession;
+                userSession.StatusLID = (int)DataEntities.Lookup.UserSession.INACTIVE;
+
+                userSessionBLL.SaveUserSession(userSession.ConvertToEntity());
             }
         }
     }

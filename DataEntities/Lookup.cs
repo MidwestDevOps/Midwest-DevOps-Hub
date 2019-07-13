@@ -6,18 +6,25 @@ namespace DataEntities
 {
     public static class Lookup
     {
-        public enum ActivityLog
-        {
-            SUCCESS = 9,
-            FAILED = 8,
-            ACCESSNOTALLOWED = 7,
-            INPROGRESS = 6
-        }
-
         public enum Application
         {
             WINDOWSNET = 1,
             MVCNET = 2
+        }
+
+        public enum ActivityLog
+        {
+            SUCCESS = 3,
+            FAILED = 4,
+            ACCESSNOTALLOWED = 5,
+            INPROGRESS = 6
+        }
+
+        public enum UserSession
+        {
+            ACTIVE = 7,
+            INACTIVE = 8,
+            UNKNOWN = 9
         }
     }
 }

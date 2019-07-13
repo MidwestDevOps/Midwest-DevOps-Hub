@@ -52,10 +52,25 @@ namespace MidwestDevOps_Hub.Forms.Login
                     {
                         activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Success", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.SUCCESS, IP = ip });
 
-                        this.Hide();
-                        Hub f = new Hub();
-                        f.Closed += (s, args) => this.Close();
-                        f.Show();
+                        var userSessionBLL = new BusinessLogicLayer.UserSessions(userBLL.GetConnection());
+
+                        HubModels.UserSessionModel userSessionModel = new HubModels.UserSessionModel();
+                        userSessionModel.GUID = Guid.NewGuid().ToString();
+                        userSessionModel.UserID = user.UserID.Value;
+                        userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+                        userSessionModel.CreatedDate = DateTime.Now;
+
+                        long? userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
+
+                        if (userSessionID != null)
+                        {
+                            userSessionModel.UserSessionID = Convert.ToInt32(userSessionID);
+
+                            this.Hide();
+                            Hub f = new Hub(userSessionModel);
+                            f.Closed += (s, args) => this.Close();
+                            f.Show();
+                        }
                     }
                     else
                     {

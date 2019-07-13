@@ -78,5 +78,28 @@ namespace HubModels
 
             return p;
         }
+
+        public class UserModelOnlineModel
+        {
+            public int UserID
+            {
+                get; set;
+            }
+
+            public string UserName
+            {
+                get; set;
+            }
+
+            public int UserSessionStatusLID
+            {
+                get; set;
+            }
+
+            public DateTime? LastOnline
+            {
+                get; set;
+            }
+        }
     }
 }
