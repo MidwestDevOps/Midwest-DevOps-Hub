@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +21,15 @@ namespace MidwestDevOps_Hub
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
             Application.Run(new Login());
+        }
+
+        private static void MyCommonExceptionHandlingMethod(object sender, ThreadExceptionEventArgs t)
+        {
+            MessageBox.Show(t.Exception.ToString(), "An Error Has Occured");
+
+            BusinessLogicLayer.Logging.SaveLog(new BusinessLogicLayer.Log() { time = DateTime.Now, exception = t.Exception });
         }
 
         static void Initialize()

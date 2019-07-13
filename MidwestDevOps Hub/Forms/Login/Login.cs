@@ -38,6 +38,7 @@ namespace MidwestDevOps_Hub.Forms.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
             var user = UserBLL.GetUserByUsername(txtUsername.Text);
 
             if (user != null)
