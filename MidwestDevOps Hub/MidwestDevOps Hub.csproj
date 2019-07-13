@@ -172,9 +172,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Content Include="connection.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -207,6 +204,9 @@
     <None Include="Resources\Square-01.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="connection.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="square_256.ico" />
   </ItemGroup>
   <ItemGroup>
