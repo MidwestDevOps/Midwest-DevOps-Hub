@@ -53,11 +53,7 @@ namespace BusinessLogicLayer
             }
             catch (Exception e)
             {
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter("logs1.txt"))
-                {
-                    sw.WriteLine(e.Message + e.StackTrace + e.Source + e.InnerException + e.TargetSite);
-                    sw.Close();
-                }
+                Logging.SaveLog(new Log() { time = DateTime.Now, exception = e });
             }
 
             return null;
@@ -73,11 +69,7 @@ namespace BusinessLogicLayer
             }
             catch (Exception e)
             {
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter("logs1.txt"))
-                {
-                    sw.WriteLine(e.Message + e.StackTrace + e.Source + e.InnerException + e.TargetSite);
-                    sw.Close();
-                }
+                Logging.SaveLog(new Log() { time = DateTime.Now, exception = e });
             }
 
             return null;
@@ -93,11 +85,7 @@ namespace BusinessLogicLayer
             }
             catch (Exception e)
             {
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter("logs1.txt"))
-                {
-                    sw.WriteLine(e.Message + e.StackTrace + e.Source + e.InnerException + e.TargetSite);
-                    sw.Close();
-                }
+                Logging.SaveLog(new Log() { time = DateTime.Now, exception = e });
             }
 
             return null;
@@ -113,11 +101,7 @@ namespace BusinessLogicLayer
             }
             catch (Exception e)
             {
-                using (System.IO.StreamWriter sw = new System.IO.StreamWriter("logs1.txt"))
-                {
-                    sw.WriteLine(e.Message + e.StackTrace + e.Source + e.InnerException + e.TargetSite);
-                    sw.Close();
-                }
+                Logging.SaveLog(new Log() { time = DateTime.Now, exception = e });
             }
 
             return null;

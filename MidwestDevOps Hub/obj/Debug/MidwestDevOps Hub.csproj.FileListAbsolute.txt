@@ -111,6 +111,7 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\MidwestDevOps Hub\obj\Debug\Midwest
 C:\Users\Mark\source\repos\MidwestDevOps Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.pdb
 C:\Users\Mark\source\repos\MidwestDevOps Hub\MidwestDevOps Hub\bin\Debug\DatabaseImplementation.dll
 C:\Users\Mark\source\repos\MidwestDevOps Hub\MidwestDevOps Hub\bin\Debug\DatabaseImplementation.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\connection.json
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MidwestDevOps Hub.exe.config
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MidwestDevOps Hub.exe
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MidwestDevOps Hub.pdb
@@ -211,34 +212,33 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\System.Xml.XPath.dll
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DataEntities.dll
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Google.Protobuf.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\HubModels.dll
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MySql.Data.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DatabaseLogicLayer.dll
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DataEntities.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\HubModels.pdb
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Google.Protobuf.xml
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\MySql.Data.xml
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DatabaseLogicLayer.pdb
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csprojAssemblyReference.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.exe.config
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.OpenTicketID.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTicket.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Hub.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Login.Login.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.AddEditProject.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.ShowProjects.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.CreateTicket.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTickets.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Properties.Resources.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.GenerateResource.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.CoreCompileInputs.cache
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.csproj.CopyComplete
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.exe
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.pdb
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\HubModels.dll
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\HubModels.pdb
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BusinessLogicLayer.dll
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DataEntities.dll
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DatabaseLogicLayer.dll
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\BusinessLogicLayer.pdb
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DataEntities.pdb
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\DatabaseLogicLayer.pdb
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.AddEditProject.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.ShowProjects.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.CreateTicket.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTickets.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Hub.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Login.Login.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.OpenTicketID.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ShowTicket.resources
-C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\bin\Debug\connection.json
