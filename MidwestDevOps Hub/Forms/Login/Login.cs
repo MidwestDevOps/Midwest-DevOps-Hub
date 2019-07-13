@@ -50,7 +50,7 @@ namespace MidwestDevOps_Hub.Forms.Login
                 {
                     if (userBLL.VerifyPassword(user, txtPassword.Text))
                     {
-                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "LoginSuccess", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.SUCCESS, IP = ip });
+                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Success", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.SUCCESS, IP = ip });
 
                         this.Hide();
                         Hub f = new Hub();
@@ -59,7 +59,7 @@ namespace MidwestDevOps_Hub.Forms.Login
                     }
                     else
                     {
-                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "LoginPasswordIncorrect", Value = txtPassword.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
+                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Password Incorrect", Value = txtUsername.Text + ": " + txtPassword.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
 
                         FormReset();
                         lblErrorMessage.Text = "Username or password is incorrect.";
@@ -67,7 +67,7 @@ namespace MidwestDevOps_Hub.Forms.Login
                 }
                 else
                 {
-                    activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "LoginUsernameNotFound", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
+                    activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Username NotFound", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
 
                     FormReset();
                     lblErrorMessage.Text = "Username or password is incorrect.";
