@@ -23,7 +23,7 @@ namespace BusinessLogicLayer
             this.sqlConnection = sqlConnection;
         }
 
-        internal MySqlConnection GetConnection()
+        public MySqlConnection GetConnection()
         {
             if (sqlConnection == null)
             {

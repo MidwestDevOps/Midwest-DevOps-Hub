@@ -69,5 +69,10 @@ namespace DatabaseLogicLayer
         {
             return reader.GetString(columnName) == "1" ? true : false;
         }
+
+        public static DateTime ReturnDateTime(MySqlDataReader reader, String columnName)
+        {
+            return DateTime.Parse(reader.GetString(columnName));
+        }
     }
 }
