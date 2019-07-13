@@ -86,6 +86,7 @@ namespace MidwestDevOps_Hub.Forms.User
             ltvUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             ltvUsers.Columns[0].Width = 0;
+            ltvUsers.Columns[0].Dispose();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

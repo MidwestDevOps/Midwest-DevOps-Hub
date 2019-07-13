@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.ltvUsers = new System.Windows.Forms.ListView();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,6 +55,31 @@
             this.ltvUsers.UseCompatibleStateImageBehavior = false;
             this.ltvUsers.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "UserID";
+            this.columnHeader5.Width = 99;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "UserName";
+            this.columnHeader1.Width = 25;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Working On";
+            this.columnHeader2.Width = 25;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Status";
+            this.columnHeader3.Width = 71;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Last Online";
+            this.columnHeader4.Width = 87;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -65,35 +90,6 @@
             this.lblTitle.Size = new System.Drawing.Size(65, 25);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Users:";
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.DisplayIndex = 0;
-            this.columnHeader1.Text = "UserName";
-            this.columnHeader1.Width = 25;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.DisplayIndex = 1;
-            this.columnHeader2.Text = "Working On";
-            this.columnHeader2.Width = 25;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.Width = 25;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.DisplayIndex = 2;
-            this.columnHeader4.Text = "Last Online";
-            this.columnHeader4.Width = 25;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.DisplayIndex = 4;
-            this.columnHeader5.Text = "UserID";
-            this.columnHeader5.Width = 99;
             // 
             // lblTime
             // 
