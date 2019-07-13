@@ -77,7 +77,22 @@ namespace MidwestDevOps_Hub.Forms.User
 
                 string[] row = { userModel.UserID.ToString(), userModel.UserName, "Nothin", status, userModel.LastOnline != null ? userModel.LastOnline.ToString() : null};
 
-                ltvUsers.Items.Add(new ListViewItem(row));
+                ListViewItem item = new ListViewItem(row);
+
+                if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.ACTIVE)
+                {
+                    item.BackColor = Color.FromArgb(255, 40, 167, 69);
+                }
+                else if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.INACTIVE)
+                {
+                    item.BackColor = Color.FromArgb(255, 220, 53, 69);
+                }
+                else
+                {
+                    item.BackColor = Color.FromArgb(255, 237, 237, 237);
+                }
+
+                ltvUsers.Items.Add(item);
             }
 
             lblTime.Text = "Last Updated: " + DateTime.Now;
@@ -86,7 +101,7 @@ namespace MidwestDevOps_Hub.Forms.User
             ltvUsers.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
             ltvUsers.Columns[0].Width = 0;
-            ltvUsers.Columns[0].Dispose();
+            //ltvUsers.Columns[0].Dispose();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
