@@ -107,5 +107,26 @@ namespace BusinessLogicLayer
             }
             return true;
         }
+
+        private static byte[] key = new byte[8] { 8, 5, 4, 4, 5, 7, 6, 1 };
+        private static byte[] iv = new byte[8] { 4, 4, 4, 6, 9, 4, 7, 9 };
+
+        public static string Crypt(this string text)
+        {
+            SymmetricAlgorithm algorithm = DES.Create();
+            ICryptoTransform transform = algorithm.CreateEncryptor(key, iv);
+            byte[] inputbuffer = Encoding.Unicode.GetBytes(text);
+            byte[] outputBuffer = transform.TransformFinalBlock(inputbuffer, 0, inputbuffer.Length);
+            return Convert.ToBase64String(outputBuffer);
+        }
+
+        public static string Decrypt(this string text)
+        {
+            SymmetricAlgorithm algorithm = DES.Create();
+            ICryptoTransform transform = algorithm.CreateDecryptor(key, iv);
+            byte[] inputbuffer = Convert.FromBase64String(text);
+            byte[] outputBuffer = transform.TransformFinalBlock(inputbuffer, 0, inputbuffer.Length);
+            return Encoding.Unicode.GetString(outputBuffer);
+        }
     }
 }
