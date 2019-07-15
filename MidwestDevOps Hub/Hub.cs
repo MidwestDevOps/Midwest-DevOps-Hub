@@ -1,4 +1,5 @@
 ﻿using MidwestDevOps_Hub.Forms;
+using MidwestDevOps_Hub.Forms.Login;
 using MidwestDevOps_Hub.Forms.Ticket;
 using MidwestDevOps_Hub.Forms.User;
 using MySql.Data.MySqlClient;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -19,6 +21,8 @@ namespace MidwestDevOps_Hub
 {
     public partial class Hub : Form
     {
+        Timer timeOutTimer = new Timer();
+
         public HubModels.UserSessionModel UserSession
         {
             get; set;
@@ -29,6 +33,17 @@ namespace MidwestDevOps_Hub
             UserSession = userSessionModel;
 
             InitializeComponent();
+
+            timeOutTimer.Tick += TimeOutTimer_Tick;
+            timeOutTimer.Interval = Convert.ToInt32(TimeSpan.TicksPerDay); //Close application if opened for a day
+            timeOutTimer.Start();
+        }
+
+        private void TimeOutTimer_Tick(object sender, EventArgs e)
+        {
+
+            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            this.Close(); //to turn off current app
         }
 
         private void createProjectToolStripMenuItem_Click(object sender, EventArgs e)

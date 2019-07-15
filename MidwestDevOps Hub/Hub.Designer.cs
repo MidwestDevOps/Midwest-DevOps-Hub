@@ -127,7 +127,7 @@
             // viewUsersToolStripMenuItem
             // 
             this.viewUsersToolStripMenuItem.Name = "viewUsersToolStripMenuItem";
-            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.viewUsersToolStripMenuItem.Text = "View Users";
             this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
