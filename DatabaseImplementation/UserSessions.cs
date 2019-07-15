@@ -135,12 +135,12 @@ namespace DatabaseLogicLayer
 
                 if (p.UserSessionID == null)
                 {
-                    sql = @"INSERT INTO `usersession` (`UserSessionID`, `GUID`, `UserID`, `StatusLID`, `CreatedDate`) VALUES (NULL, @GUID, @UserID, @StatusLID, @CreatedDate);
+                    sql = @"INSERT INTO `usersession` (`UserSessionID`, `GUID`, `UserID`, `StatusLID`, `ExpireDate`, `CreatedDate`) VALUES (NULL, @GUID, @UserID, @StatusLID, @ExpireDate, @CreatedDate);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `usersession` SET UserSessionID = @ID, GUID = @GUID, UserID = @UserID, StatusLID = @StatusLID, CreatedDate = @CreatedDate WHERE UserSessionID = @ID;";
+                    sql = @"UPDATE `usersession` SET UserSessionID = @ID, GUID = @GUID, UserID = @UserID, StatusLID = @StatusLID, ExpireDate = @ExpireDate, CreatedDate = @CreatedDate WHERE UserSessionID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -149,6 +149,7 @@ namespace DatabaseLogicLayer
                 cmd.Parameters.AddWithValue("@GUID", p.GUID);
                 cmd.Parameters.AddWithValue("@UserID", p.UserID);
                 cmd.Parameters.AddWithValue("@StatusLID", p.StatusLID);
+                cmd.Parameters.AddWithValue("@ExpireDate", p.ExpireDate);
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
 
                 if (p.UserSessionID == null) //Get new id number
@@ -172,6 +173,7 @@ namespace DatabaseLogicLayer
             p.GUID = DBUtilities.ReturnSafeString(reader, "GUID");
             p.UserID = DBUtilities.ReturnSafeInt(reader, "UserID").Value;
             p.StatusLID = DBUtilities.ReturnSafeInt(reader, "StatusLID").Value;
+            p.ExpireDate = DBUtilities.ReturnSafeDateTime(reader, "ExpireDate").Value;
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate").Value;
 
             return p;

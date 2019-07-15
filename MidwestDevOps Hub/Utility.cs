@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace MidwestDevOps_Hub
 {
@@ -20,6 +21,32 @@ namespace MidwestDevOps_Hub
             string ipAddress = new WebClient().DownloadString("http://icanhazip.com");
 
             return ipAddress;
+        }
+
+        public static void RestartApplication(System.Windows.Forms.Form mainHub)
+        {
+            System.Diagnostics.Process.Start(System.Windows.Forms.Application.ExecutablePath); // to start new instance of application
+            mainHub.Close(); //to turn off current app
+        }
+
+        [DllImport("User32.dll")]
+        private static extern bool
+        GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+
+            public uint dwTime;
+        }
+
+        public static uint GetInactiveMilliseconds()
+        {
+            LASTINPUTINFO lastInPut = new LASTINPUTINFO();
+            lastInPut.cbSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(lastInPut);
+            GetLastInputInfo(ref lastInPut);
+
+            return ((uint)Environment.TickCount - lastInPut.dwTime);
         }
     }
 }

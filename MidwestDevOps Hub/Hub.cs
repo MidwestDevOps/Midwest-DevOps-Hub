@@ -34,21 +34,59 @@ namespace MidwestDevOps_Hub
 
             InitializeComponent();
 
-            timeOutTimer.Tick += TimeOutTimer_Tick;
-            timeOutTimer.Interval = Convert.ToInt32(87000000); //Close application if opened for a day
-            timeOutTimer.Start();
+            Timer inactivityTimer = new Timer();
+            inactivityTimer.Tick += InactivityTimerEvent;
+            inactivityTimer.Interval = 5000;
+            inactivityTimer.Start();
         }
 
-        private void TimeOutTimer_Tick(object sender, EventArgs e)
+        private void InactivityTimerEvent(object sender, EventArgs e)
         {
+            uint inactiveMilliseconds = Utility.GetInactiveMilliseconds();
 
-            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
-            this.Close(); //to turn off current app
+            if (inactiveMilliseconds >= 600000 && inactiveMilliseconds < 65000000) //10 minutes
+            {
+                if (UserSession.StatusLID != (int)DataEntities.Lookup.UserSession.AWAY)
+                {
+                    using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
+                    {
+                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(UserSession.UserID);
+
+                        userSession.StatusLID = (int)DataEntities.Lookup.UserSession.AWAY;
+
+                        UserSession = new HubModels.UserSessionModel(userSession);
+
+                        userSessionBLL.SaveUserSession(userSession);
+                    }
+                }
+            }
+            else if (inactiveMilliseconds >= 65000000) //.75 days
+            {
+                Utility.RestartApplication(this);
+            }
+            else
+            {
+                if (UserSession.StatusLID != (int)DataEntities.Lookup.UserSession.ACTIVE)
+                {
+                    using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
+                    {
+                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(UserSession.UserID);
+
+                        userSession.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+
+                        UserSession = new HubModels.UserSessionModel(userSession);
+
+                        userSessionBLL.SaveUserSession(userSession);
+                    }
+                }
+            }
         }
 
         private void createProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var s = sender as ToolStripMenuItem;
+
+            if ()
 
             switch (s.AccessibilityObject.Name)
             {
@@ -91,6 +129,7 @@ namespace MidwestDevOps_Hub
             {
                 var userSession = UserSession;
                 userSession.StatusLID = (int)DataEntities.Lookup.UserSession.INACTIVE;
+                userSession.ExpireDate = DateTime.Now.AddDays(-1);
 
                 userSessionBLL.SaveUserSession(userSession.ConvertToEntity());
             }

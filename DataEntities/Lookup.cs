@@ -24,7 +24,8 @@ namespace DataEntities
         {
             ACTIVE = 7,
             INACTIVE = 8,
-            UNKNOWN = 9
+            AWAY = 9,
+            UNKNOWN = 10
         }
     }
 }

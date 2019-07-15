@@ -26,6 +26,11 @@ namespace DataEntities
             get; set;
         }
 
+        public DateTime ExpireDate
+        {
+            get; set;
+        }
+
         public DateTime CreatedDate
         {
             get; set;

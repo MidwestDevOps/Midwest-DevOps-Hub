@@ -70,6 +70,10 @@ namespace MidwestDevOps_Hub.Forms.User
                 {
                     status = "Online";
                 }
+                else if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.AWAY)
+                {
+                    status = "Away";
+                }
                 else if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.INACTIVE)
                 {
                     status = "Offline";
@@ -82,6 +86,10 @@ namespace MidwestDevOps_Hub.Forms.User
                 if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.ACTIVE)
                 {
                     item.BackColor = Color.FromArgb(255, 40, 167, 69);
+                }
+                else if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.AWAY)
+                {
+                    item.BackColor = Color.FromArgb(255, 255, 193, 7);
                 }
                 else if (userModel.UserSessionStatusLID == (int)DataEntities.Lookup.UserSession.INACTIVE)
                 {

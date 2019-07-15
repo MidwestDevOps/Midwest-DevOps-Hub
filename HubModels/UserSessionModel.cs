@@ -26,6 +26,11 @@ namespace HubModels
             get; set;
         }
 
+        public DateTime ExpireDate
+        {
+            get; set;
+        }
+
         public DateTime CreatedDate
         {
             get; set;
@@ -42,6 +47,7 @@ namespace HubModels
             this.GUID = p.GUID;
             this.UserID = p.UserID;
             this.StatusLID = p.StatusLID;
+            this.ExpireDate = p.ExpireDate;
             this.CreatedDate = p.CreatedDate;
         }
 
@@ -53,6 +59,7 @@ namespace HubModels
             p.GUID = this.GUID;
             p.UserID = this.UserID;
             p.StatusLID = this.StatusLID;
+            p.ExpireDate = this.ExpireDate;
             p.CreatedDate = this.CreatedDate;
 
             return p;

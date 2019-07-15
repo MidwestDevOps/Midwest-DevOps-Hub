@@ -58,6 +58,7 @@ namespace MidwestDevOps_Hub.Forms.Login
                         userSessionModel.GUID = Guid.NewGuid().ToString();
                         userSessionModel.UserID = user.UserID.Value;
                         userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+                        userSessionModel.ExpireDate = DateTime.Now.AddHours(1);
                         userSessionModel.CreatedDate = DateTime.Now;
 
                         long? userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
