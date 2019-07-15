@@ -35,7 +35,7 @@ namespace MidwestDevOps_Hub
             InitializeComponent();
 
             timeOutTimer.Tick += TimeOutTimer_Tick;
-            timeOutTimer.Interval = Convert.ToInt32(TimeSpan.TicksPerDay); //Close application if opened for a day
+            timeOutTimer.Interval = Convert.ToInt32(87000000); //Close application if opened for a day
             timeOutTimer.Start();
         }
 
