@@ -86,8 +86,6 @@ namespace MidwestDevOps_Hub
         {
             var s = sender as ToolStripMenuItem;
 
-            if ()
-
             switch (s.AccessibilityObject.Name)
             {
                 case "Create Project":

@@ -54,21 +54,34 @@ namespace MidwestDevOps_Hub.Forms.Login
 
                         var userSessionBLL = new BusinessLogicLayer.UserSessions(userBLL.GetConnection());
 
-                        HubModels.UserSessionModel userSessionModel = new HubModels.UserSessionModel();
-                        userSessionModel.GUID = Guid.NewGuid().ToString();
-                        userSessionModel.UserID = user.UserID.Value;
-                        userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
-                        userSessionModel.ExpireDate = DateTime.Now.AddHours(1);
-                        userSessionModel.CreatedDate = DateTime.Now;
+                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(user.UserID.Value);
 
-                        long? userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
+                        long? userSessionID = 0;
+
+                        if (userSession == null) //Timed out or no record
+                        {
+                            HubModels.UserSessionModel userSessionModel = new HubModels.UserSessionModel();
+                            userSessionModel.GUID = Guid.NewGuid().ToString();
+                            userSessionModel.UserID = user.UserID.Value;
+                            userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+                            userSessionModel.ExpireDate = DateTime.Now.AddHours(1);
+                            userSessionModel.CreatedDate = DateTime.Now;
+                            userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
+
+                            userSession = userSessionModel.ConvertToEntity();
+                        }
+                        else
+                        {
+                            userSession.ExpireDate = DateTime.Now.AddHours(1);
+                            userSessionID = userSessionBLL.SaveUserSession(userSession);
+                        }
 
                         if (userSessionID != null)
                         {
-                            userSessionModel.UserSessionID = Convert.ToInt32(userSessionID);
+                            userSession.UserSessionID = Convert.ToInt32(userSessionID);
 
                             this.Hide();
-                            Hub f = new Hub(userSessionModel);
+                            Hub f = new Hub(new HubModels.UserSessionModel(userSession));
                             f.Closed += (s, args) => this.Close();
                             f.Show();
                         }

@@ -97,7 +97,14 @@ namespace BusinessLogicLayer
             {
                 DatabaseLogicLayer.UserSessions userSessionDLL = new DatabaseLogicLayer.UserSessions(GetConnection());
 
-                return userSessionDLL.GetUserSessionLatestRecordForUserID(userID);
+                var userSession = userSessionDLL.GetUserSessionLatestRecordForUserID(userID);
+
+                if (userSession.ExpireDate <= DateTime.Now)
+                {
+                    return null;
+                }
+
+                return userSession;
             }
             catch (Exception e)
             {
