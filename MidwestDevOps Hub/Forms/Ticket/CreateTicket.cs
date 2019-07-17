@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 {
     public partial class CreateTicket : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         #region Business Layer
 
@@ -196,7 +196,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
-        public CreateTicket(Form form)
+        public CreateTicket(Hub form)
         {
             MainForm = form;
 
@@ -224,7 +224,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
                 t.Subject = txtSubject.Text;
                 t.Issue = rtbIssue.Text;
 
-                t.CreatedBy = 0;
+                t.CreatedBy = MainForm.UserSession.UserID;
                 t.CreatedDate = DateTime.Now;
                 t.Active = true;
 

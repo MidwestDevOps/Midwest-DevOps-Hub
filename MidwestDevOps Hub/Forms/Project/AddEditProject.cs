@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub.Forms
 {
     public partial class AddEditProject : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
         public int? ProjectID = null;
 
         #region Business Layer
@@ -106,7 +106,7 @@ namespace MidwestDevOps_Hub.Forms
 
         #endregion
 
-        public AddEditProject(int? projectID, Form mainForm)
+        public AddEditProject(int? projectID, Hub mainForm)
         {
             ProjectID = projectID;
             MainForm = mainForm;
@@ -127,7 +127,7 @@ namespace MidwestDevOps_Hub.Forms
                 p.Name = txtName.Text;
                 p.Description = rtbDescription.Text;
                 p.CreatedDate = DateTime.UtcNow;
-                p.CreatedBy = 0;
+                p.CreatedBy = MainForm.UserSession.UserID;
                 p.Active = true;
 
                 long? id = projectBLL.SaveProject(p.ConvertToEntity());

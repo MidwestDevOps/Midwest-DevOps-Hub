@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub.Forms
 {
     public partial class ShowProjects : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         public HubModels.ProjectModel projectModel = null;
 
@@ -70,7 +70,7 @@ namespace MidwestDevOps_Hub.Forms
 
         #endregion
 
-        public ShowProjects(Form form)
+        public ShowProjects(Hub form)
         {
             MainForm = form;
 

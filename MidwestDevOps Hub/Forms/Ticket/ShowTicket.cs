@@ -12,7 +12,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 {
     public partial class ShowTicket : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         public int? TicketID = null;
 
@@ -214,7 +214,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
-        public ShowTicket(Form form, int? ticketID)
+        public ShowTicket(Hub form, int? ticketID)
         {
             MainForm = form;
             TicketID = ticketID;
@@ -231,6 +231,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             if (TicketID.HasValue)
             {
                 this.Name = "Ticket ID: " + ticketID;
+                this.Text = "Ticket ID: " + ticketID;
                 lblTicketIDDisplay.Text = ticketID.ToString();
 
                 rtbIssue.Text = Ticket.Issue;
@@ -247,6 +248,8 @@ namespace MidwestDevOps_Hub.Forms.Ticket
                 Ticket.PriorityID = Convert.ToInt32(cbPriority.SelectedValue);
                 Ticket.ProjectID = Convert.ToInt32(cbProject.SelectedValue);
                 Ticket.Subject = txtSubject.Text;
+                Ticket.ModifiedBy = MainForm.UserSession.UserID;
+                Ticket.ModifiedDate = DateTime.Now;
 
                 long? id = ticketBLL.SaveTicket(Ticket);
 

@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 {
     public partial class ShowTickets : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         #region Business Layer
 
@@ -131,7 +131,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
-        public ShowTickets(Form form)
+        public ShowTickets(Hub form)
         {
             MainForm = form;
 

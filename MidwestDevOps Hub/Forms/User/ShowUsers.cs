@@ -12,11 +12,11 @@ namespace MidwestDevOps_Hub.Forms.User
 {
     public partial class ShowUsers : Form
     {
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         public HubModels.ProjectModel projectModel = null;
 
-        public ShowUsers(Form form)
+        public ShowUsers(Hub form)
         {
             MainForm = form;
 

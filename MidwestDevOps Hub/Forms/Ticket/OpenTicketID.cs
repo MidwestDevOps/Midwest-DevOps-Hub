@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
     public partial class OpenTicketID : Form
     {
 
-        public Form MainForm = null;
+        public Hub MainForm = null;
 
         #region Business Layer
 
@@ -93,7 +93,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
 
         #endregion
 
-        public OpenTicketID(Form form)
+        public OpenTicketID(Hub form)
         {
             MainForm = form;
 
