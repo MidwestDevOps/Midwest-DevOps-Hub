@@ -250,3 +250,9 @@ C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hu
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps Hub.application
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.FirstTimeSetup.FirstTimeSetUp.resources
 C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Utilities.DecryptCrypt.resources
+C:\Debug\Hub\connection.json
+C:\Debug\Hub\MidwestDevOps Hub.exe.config
+C:\Debug\Hub\MidwestDevOps Hub.exe.manifest
+C:\Debug\Hub\MidwestDevOps Hub.application
+C:\Debug\Hub\MidwestDevOps Hub.exe
+C:\Debug\Hub\MidwestDevOps Hub.pdb

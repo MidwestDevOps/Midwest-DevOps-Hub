@@ -35,6 +35,16 @@ namespace MidwestDevOps_Hub
 
             InitializeComponent();
 
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is MdiClient)
+                {
+                    ctrl.BackColor = Color.FromArgb(255, 31, 169, 156);
+                    ctrl.BackgroundImage = MidwestDevOps_Hub.Properties.Resources.Logo;
+                    ctrl.BackgroundImageLayout = ImageLayout.Center; //Doesn't get set
+                }
+            }
+
             Timer inactivityTimer = new Timer();
             inactivityTimer.Tick += InactivityTimerEvent;
             inactivityTimer.Interval = 5000;
@@ -123,6 +133,9 @@ namespace MidwestDevOps_Hub
                     DecryptCrypt decryptCrypt = new DecryptCrypt(this);
                     decryptCrypt.MdiParent = this;
                     decryptCrypt.Show();
+                    break;
+                case "Open Hub Folder":
+                    Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MidwestDevOps"));
                     break;
             }
         }

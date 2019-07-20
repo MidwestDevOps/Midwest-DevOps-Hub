@@ -62,7 +62,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MidwestDevOps_Hub.Properties.Resources.Square_01;
+            this.pictureBox1.Image = global::MidwestDevOps_Hub.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(16, 18);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
