@@ -2,6 +2,7 @@
 using MidwestDevOps_Hub.Forms.Login;
 using MidwestDevOps_Hub.Forms.Ticket;
 using MidwestDevOps_Hub.Forms.User;
+using MidwestDevOps_Hub.Forms.Utilities;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -117,6 +118,11 @@ namespace MidwestDevOps_Hub
                     ShowUsers showUsers = new ShowUsers(this);
                     showUsers.MdiParent = this;
                     showUsers.Show();
+                    break;
+                case "Crypt / Decrypt":
+                    DecryptCrypt decryptCrypt = new DecryptCrypt(this);
+                    decryptCrypt.MdiParent = this;
+                    decryptCrypt.Show();
                     break;
             }
         }

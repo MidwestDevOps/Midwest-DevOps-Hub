@@ -36,6 +36,8 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblErrorMessage = new System.Windows.Forms.Label();
+            this.cbDatabases = new System.Windows.Forms.ComboBox();
+            this.lblDatabase = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.ForeColor = System.Drawing.Color.White;
-            this.lblUsername.Location = new System.Drawing.Point(243, 81);
+            this.lblUsername.Location = new System.Drawing.Point(243, 77);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(82, 20);
@@ -52,7 +54,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(333, 78);
+            this.txtUsername.Location = new System.Drawing.Point(333, 74);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(185, 27);
@@ -112,6 +114,25 @@
             this.lblErrorMessage.Size = new System.Drawing.Size(0, 20);
             this.lblErrorMessage.TabIndex = 6;
             // 
+            // cbDatabases
+            // 
+            this.cbDatabases.FormattingEnabled = true;
+            this.cbDatabases.Location = new System.Drawing.Point(333, 32);
+            this.cbDatabases.Name = "cbDatabases";
+            this.cbDatabases.Size = new System.Drawing.Size(185, 28);
+            this.cbDatabases.TabIndex = 7;
+            // 
+            // lblDatabase
+            // 
+            this.lblDatabase.AutoSize = true;
+            this.lblDatabase.ForeColor = System.Drawing.Color.White;
+            this.lblDatabase.Location = new System.Drawing.Point(243, 35);
+            this.lblDatabase.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDatabase.Name = "lblDatabase";
+            this.lblDatabase.Size = new System.Drawing.Size(75, 20);
+            this.lblDatabase.TabIndex = 8;
+            this.lblDatabase.Text = "Database:";
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -120,6 +141,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(168)))), ((int)(((byte)(156)))));
             this.ClientSize = new System.Drawing.Size(569, 249);
+            this.Controls.Add(this.lblDatabase);
+            this.Controls.Add(this.cbDatabases);
             this.Controls.Add(this.lblErrorMessage);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -148,5 +171,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblErrorMessage;
+        private System.Windows.Forms.ComboBox cbDatabases;
+        private System.Windows.Forms.Label lblDatabase;
     }
 }

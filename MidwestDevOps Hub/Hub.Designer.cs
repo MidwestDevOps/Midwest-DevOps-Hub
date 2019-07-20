@@ -40,6 +40,8 @@
             this.openTicketToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cryptDecryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             this.fileToolStripMenuItem,
             this.projectsToolStripMenuItem,
             this.ticketsToolStripMenuItem,
-            this.usersToolStripMenuItem});
+            this.usersToolStripMenuItem,
+            this.utilitiesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(864, 24);
@@ -131,6 +134,21 @@
             this.viewUsersToolStripMenuItem.Text = "View Users";
             this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
+            // utilitiesToolStripMenuItem
+            // 
+            this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cryptDecryptToolStripMenuItem});
+            this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
+            this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.utilitiesToolStripMenuItem.Text = "Utilities";
+            // 
+            // cryptDecryptToolStripMenuItem
+            // 
+            this.cryptDecryptToolStripMenuItem.Name = "cryptDecryptToolStripMenuItem";
+            this.cryptDecryptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cryptDecryptToolStripMenuItem.Text = "Crypt / Decrypt";
+            this.cryptDecryptToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
+            // 
             // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +181,8 @@
         private System.Windows.Forms.ToolStripMenuItem openTicketToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewUsersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilitiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cryptDecryptToolStripMenuItem;
     }
 }
 

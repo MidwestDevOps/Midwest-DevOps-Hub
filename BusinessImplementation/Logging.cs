@@ -32,7 +32,7 @@ namespace BusinessLogicLayer
 
         public static void SaveLog(Log log)
         {
-            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(LogPath))
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(LogPath, true))
             {
                 sw.WriteLine("# " + log.time + " #");
 

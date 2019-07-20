@@ -1,4 +1,7 @@
-﻿using MidwestDevOps_Hub.Forms.Login;
+﻿using BusinessLogicLayer;
+using HubModels;
+using MidwestDevOps_Hub.Forms.FirstTimeSetup;
+using MidwestDevOps_Hub.Forms.Login;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,18 +14,21 @@ namespace MidwestDevOps_Hub
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        static bool isFirstTime = false;
+
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Initialize();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
-            Application.Run(new Login());
+
+            if (isFirstTime || args.Where(x => x == "isFirstTime").Count() > 0)
+                Application.Run(new FirstTimeSetUp());
+            else
+                Application.Run(new Login());
         }
 
         private static void MyCommonExceptionHandlingMethod(object sender, ThreadExceptionEventArgs t)
@@ -32,38 +38,44 @@ namespace MidwestDevOps_Hub
             BusinessLogicLayer.Logging.SaveLog(new BusinessLogicLayer.Log() { time = DateTime.Now, exception = t.Exception });
         }
 
+        internal static void CreateDirectory(string path)
+        {
+            if (Directory.Exists(path)) { 
+
+            }
+            else
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+
+        internal static void CreateFile(string path)
+        {
+            if (File.Exists(path)) { 
+
+            }
+            else
+            {
+                File.Create(path);
+            }
+        }
+
         static void Initialize()
         {
 
-            //Logging
             String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            if (Directory.Exists(Path.Combine(path, "MidwestDevOps")))
-            {
+            CreateDirectory(Path.Combine(path, "MidwestDevOps"));
 
-            }
-            else
-            {
-                Directory.CreateDirectory(Path.Combine(path, "MidwestDevOps"));
-            }
+            //Connections
+            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Connections"));
+            if (!File.Exists(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json")) || String.IsNullOrEmpty(File.ReadAllText(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json"))))
+                isFirstTime = true;
+            CreateFile(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json"));
 
-            if (Directory.Exists(Path.Combine(path, "MidwestDevOps", "Logging")))
-            {
-
-            }
-            else
-            {
-                Directory.CreateDirectory(Path.Combine(path, "MidwestDevOps", "Logging"));
-            }
-
-            if (File.Exists(Path.Combine(path, "MidwestDevOps", "Logging", "log.txt")))
-            {
-
-            }
-            else
-            {
-                File.Create(Path.Combine(path, "MidwestDevOps", "Logging", "log.txt"));
-            }
+            //Logging
+            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Logging"));
+            CreateFile(Path.Combine(path, "MidwestDevOps", "Logging", "log.txt"));
 
             BusinessLogicLayer.Logging.LogPath = Path.Combine(path, "MidwestDevOps", "Logging", "log.txt");
         }

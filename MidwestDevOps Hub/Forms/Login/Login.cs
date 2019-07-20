@@ -31,13 +31,41 @@ namespace MidwestDevOps_Hub.Forms.Login
 
         #endregion
 
+        public bool onlyOneDatabase = false;
+
         public Login()
         {
             InitializeComponent();
+
+            if (ConnectionHandler.GetConnectionStringCount() == 1)
+            {
+                ConnectionHandler.LoadDefaultConnectionString();
+                cbDatabases.Visible = false;
+                lblDatabase.Visible = false;
+
+                onlyOneDatabase = true;
+            }
+            else
+            {
+                var connections = ConnectionHandler.GetAllConnections().DatabaseConnections;
+
+                cbDatabases.DisplayMember = "Name";
+                cbDatabases.ValueMember = "Name";
+                cbDatabases.DataSource = connections;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (onlyOneDatabase)
+            {
+                ConnectionHandler.LoadDefaultConnectionString();
+            }
+            else
+            {
+                ConnectionHandler.LoadSpecificConnectionString(cbDatabases.SelectedValue.ToString());
+            }
+
             string ip = Utility.GetIPAddress();
 
             using (var userBLL = new BusinessLogicLayer.Users(Utility.GetConnectionString()))

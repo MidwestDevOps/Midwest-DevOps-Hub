@@ -28,7 +28,7 @@
     <PublisherName>Midwest DevOps</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -116,6 +116,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionHandler.cs" />
+    <Compile Include="Forms\FirstTimeSetup\FirstTimeSetUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FirstTimeSetup\FirstTimeSetUp.Designer.cs">
+      <DependentUpon>FirstTimeSetUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ticket\OpenTicketID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +140,12 @@
     </Compile>
     <Compile Include="Forms\User\ShowUsers.Designer.cs">
       <DependentUpon>ShowUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Utilities\DecryptCrypt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utilities\DecryptCrypt.Designer.cs">
+      <DependentUpon>DecryptCrypt.cs</DependentUpon>
     </Compile>
     <Compile Include="Hub.cs">
       <SubType>Form</SubType>
@@ -174,6 +187,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility.cs" />
+    <EmbeddedResource Include="Forms\FirstTimeSetup\FirstTimeSetUp.resx">
+      <DependentUpon>FirstTimeSetUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ticket\OpenTicketID.resx">
       <DependentUpon>OpenTicketID.cs</DependentUpon>
     </EmbeddedResource>
@@ -182,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\ShowUsers.resx">
       <DependentUpon>ShowUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utilities\DecryptCrypt.resx">
+      <DependentUpon>DecryptCrypt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hub.resx">
       <DependentUpon>Hub.cs</DependentUpon>

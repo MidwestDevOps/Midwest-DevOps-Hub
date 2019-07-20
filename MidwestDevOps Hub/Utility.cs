@@ -1,6 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using BusinessLogicLayer;
+using HubModels;
+using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -9,11 +12,18 @@ namespace MidwestDevOps_Hub
 {
     public static class Utility
     {
+        public static string HubMainConnectionString = "JLq9DKzWp4tM0kQOwyPTulP36bAIeQrrI5GzwfOSx/H8I0k0UshhqppmJxYRtLrJtRDUXr5Yqg+AutbwMz3UVibF7y7rfqY6+NZSOFD+HkyPbHfDRJeygre5X+VxQkUKT4Dpo0n8bD8Q5JFsN4JYxkAAIRKH5pYaEq56laavdBM3s6stjLJ7y07k/Y8+Jd5f/V+pNufww1+eYbbHJrRJJb20sRnN/9GOQ3Exjijaz041ExZZUYrCqGmSxFA8blSiNrGZ9kREtkE=";
+
+        public static string connectionString
+        {
+            get; set;
+        }
+
+        public static string connectionPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MidwestDevOps", "Connections", "Connections.json");
+
         public static string GetConnectionString()
         {
-            string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"connection.json");
-
-            return BusinessLogicLayer.TextHasher.Decrypt(JsonConvert.DeserializeObject<HubModels.Connection>(File.ReadAllText(path)).DatabaseConnection);
+            return connectionString;
         }
 
         public static string GetIPAddress()
