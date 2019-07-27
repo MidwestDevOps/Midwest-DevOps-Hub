@@ -29,20 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstTimeSetUp));
-            this.cbCompanyList = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCompanySelection = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
+            this.mtbProductKey = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
-            // 
-            // cbCompanyList
-            // 
-            this.cbCompanyList.FormattingEnabled = true;
-            this.cbCompanyList.Location = new System.Drawing.Point(18, 129);
-            this.cbCompanyList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbCompanyList.Name = "cbCompanyList";
-            this.cbCompanyList.Size = new System.Drawing.Size(264, 28);
-            this.cbCompanyList.TabIndex = 0;
             // 
             // label1
             // 
@@ -72,19 +64,40 @@
             this.label2.Location = new System.Drawing.Point(50, 73);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 20);
+            this.label2.Size = new System.Drawing.Size(207, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Please select your company:";
+            this.label2.Text = "Please enter your product key:";
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(51, 156);
+            this.lblError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 15);
+            this.lblError.TabIndex = 5;
+            // 
+            // mtbProductKey
+            // 
+            this.mtbProductKey.Location = new System.Drawing.Point(18, 128);
+            this.mtbProductKey.Mask = "AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA";
+            this.mtbProductKey.Name = "mtbProductKey";
+            this.mtbProductKey.Size = new System.Drawing.Size(265, 27);
+            this.mtbProductKey.TabIndex = 6;
+            this.mtbProductKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FirstTimeSetUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(295, 231);
+            this.Controls.Add(this.mtbProductKey);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCompanySelection);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbCompanyList);
             this.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -96,10 +109,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cbCompanyList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCompanySelection;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.MaskedTextBox mtbProductKey;
     }
 }

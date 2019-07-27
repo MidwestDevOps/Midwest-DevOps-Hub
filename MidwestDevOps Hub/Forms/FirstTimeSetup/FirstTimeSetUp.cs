@@ -18,27 +18,6 @@ namespace MidwestDevOps_Hub.Forms.FirstTimeSetup
         public FirstTimeSetUp()
         {
             InitializeComponent();
-
-            LoadClients();
-        }
-
-        private void LoadClients()
-        {
-            try
-            {
-                using (var clientBLL = new BusinessLogicLayer.HubMainClients(TextHasher.Decrypt(Utility.HubMainConnectionString)))
-                {
-                    var clients = clientBLL.GetAllClients(true);
-
-                    cbCompanyList.ValueMember = "ClientID";
-                    cbCompanyList.DisplayMember = "ClientName";
-                    cbCompanyList.DataSource = clients;
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Something went wrong", "Error");
-            }
         }
 
         private void btnCompanySelection_Click(object sender, EventArgs e)
@@ -47,19 +26,22 @@ namespace MidwestDevOps_Hub.Forms.FirstTimeSetup
             {
                 using (var clientBLL = new BusinessLogicLayer.HubMainClients(TextHasher.Decrypt(Utility.HubMainConnectionString)))
                 {
-                    var clients = clientBLL.GetClientByID(Convert.ToInt32(cbCompanyList.SelectedValue));
+                    var clients = clientBLL.GetClientByUUID(mtbProductKey.Text);
 
-                    Connection con = new Connection();
-                    con.UUID = clients.UUID;
-                    con.Name = clients.ClientName;
+                    if (clients != null)
+                    {
+                        Connection con = new Connection();
+                        con.UUID = clients.UUID;
+                        con.Name = clients.ClientName;
 
-                    ConnectionHandler.SaveConnectionString(con);
+                        ConnectionHandler.SaveConnectionString(con);
 
-                    //this.Hide();
-                    //Login.Login login = new Login.Login();
-                    //login.Show();
-
-                    Utility.RestartApplication(this);
+                        Utility.RestartApplication(this);
+                    }
+                    else
+                    {
+                        lblError.Text = "Error: Invalid Product Key";
+                    }
                 }
             }
             catch (Exception ex)
