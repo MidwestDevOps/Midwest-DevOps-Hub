@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub
 {
     public static class Utility
     {
-        public static string HubMainConnectionString = "JLq9DKzWp4tM0kQOwyPTulP36bAIeQrrI5GzwfOSx/H8I0k0UshhqppmJxYRtLrJtRDUXr5Yqg+AutbwMz3UVibF7y7rfqY6+NZSOFD+HkyPbHfDRJeygre5X+VxQkUKT4Dpo0n8bD8Q5JFsN4JYxkAAIRKH5pYaEq56laavdBM3s6stjLJ7y07k/Y8+Jd5f/V+pNufww1+eYbbHJrRJJb20sRnN/9GOQ3Exjijaz041ExZZUYrCqGmSxFA8blSiNrGZ9kREtkE=";
+        public static string HubMainConnectionString = "JLq9DKzWp4tM0kQOwyPTulP36bAIeQrrI5GzwfOSx/H8I0k0UshhqppmJxYRtLrJtRDUXr5Yqg+AutbwMz3UVibF7y7rfqY6+NZSOFD+HkyPbHfDRJeygre5X+VxQkUKT4Dpo0n8bD9JojHKuw9UqyjdJwqWBNfQHuCQ+KPkXKukUsKJOsUzwDkRVih2cjF3jVw0T1EViiVjww1WUe7KJU6vxKQVOHsbooMqG1qTNrinIZNGbA4W3d9Ds0FO9DW/XetbjXvCVSc=";
 
         public static string connectionString
         {
