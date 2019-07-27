@@ -13,7 +13,7 @@ namespace MidwestDevOps_Hub
 {
     public static class Utility
     {
-        public static string HubMainConnectionString = "JLq9DKzWp4tM0kQOwyPTulP36bAIeQrrI5GzwfOSx/H8I0k0UshhqppmJxYRtLrJtRDUXr5Yqg+AutbwMz3UVibF7y7rfqY6+NZSOFD+HkyPbHfDRJeygre5X+VxQkUKT4Dpo0n8bD9JojHKuw9UqyjdJwqWBNfQHuCQ+KPkXKukUsKJOsUzwDkRVih2cjF3GnvyTJnCLO6/XbVJ+k4bbuvoB3z+ioKE2CbyWlPIk/Uhq7WjUK4np7+hLLbbr3Ir37oXz8nIwctZ7+V5BKkU8NyLpOv+aR/Y1N/o8agf7yg=";
+        public static string HubMainConnectionString = "JLq9DKzWp4tM0kQOwyPTulP36bAIeQrrI5GzwfOSx/H8I0k0UshhqppmJxYRtLrJtRDUXr5Yqg+AutbwMz3UVibF7y7rfqY6+NZSOFD+HkyPbHfDRJeygre5X+VxQkUKT4Dpo0n8bD9JojHKuw9UqyjdJwqWBNfQHuCQ+KPkXKukUsKJOsUzwDkRVih2cjF3GnvyTJnCLO6/XbVJ+k4bbuvoB3z+ioKE2CbyWlPIk/Uhq7WjUK4np7+hLLbbr3Irb7omkHUJqkdOPuEYrqUHi+N+N4PnWhpoFKQm/4VjK/kCvuLl+hwSaGXnMyM4JJSByXPmOaEoY9nfi9AKSgyGg/BxYhfh0h60pquztKLDk2g=";
 
         public static string connectionString
         {
