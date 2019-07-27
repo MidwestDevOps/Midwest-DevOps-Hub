@@ -4,44 +4,18 @@ using System.Collections.Generic;
 
 namespace BusinessLogicLayer
 {
-    public class Projects : IDisposable
+    public class Projects : BLLManager, IDisposable
     {
 
-        #region Boring Stuff
-
-        string ConnectionString { get; set; }
-
-        MySqlConnection sqlConnection { get; set; }
-
-        public Projects (string connectionString)
+        public Projects(string connectionString)
         {
             this.ConnectionString = connectionString;
         }
 
-        public Projects (MySqlConnection sqlConnection)
+        public Projects(MySqlConnection sqlConnection)
         {
             this.sqlConnection = sqlConnection;
         }
-
-        internal MySqlConnection GetConnection()
-        {
-            if (sqlConnection == null)
-            {
-                return new MySqlConnection(this.ConnectionString);
-            }
-            else
-            {
-                return this.sqlConnection;
-            }
-        }
-
-        public void Dispose()
-        {
-            if (sqlConnection != null)
-                sqlConnection.Dispose();
-        }
-
-        #endregion
 
         public List<DataEntities.Project> GetAllProjects()
         {

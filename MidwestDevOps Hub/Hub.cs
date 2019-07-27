@@ -22,12 +22,13 @@ namespace MidwestDevOps_Hub
 {
     public partial class Hub : Form
     {
-        Timer timeOutTimer = new Timer();
 
         public HubModels.UserSessionModel UserSession
         {
             get; set;
         }
+
+        Timer inactivityTimer = new Timer();
 
         public Hub(HubModels.UserSessionModel userSessionModel)
         {
@@ -45,7 +46,16 @@ namespace MidwestDevOps_Hub
                 }
             }
 
-            Timer inactivityTimer = new Timer();
+            using (var versionBLL = new BusinessLogicLayer.Versions(Utility.GetConnectionString()))
+            {
+                var version = versionBLL.GetLatestVersion();
+
+                if (version != null)
+                {
+                    serverVersionToolStripMenuItem.Text = "Database Version: " + version.ServerVersion;
+                }
+            }
+
             inactivityTimer.Tick += InactivityTimerEvent;
             inactivityTimer.Interval = 5000;
             inactivityTimer.Start();
@@ -81,13 +91,16 @@ namespace MidwestDevOps_Hub
                 {
                     using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
                     {
-                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(UserSession.UserID);
+                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(UserSession.UserID, false);
 
-                        userSession.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+                        if (userSession != null)
+                        {
+                            userSession.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
 
-                        UserSession = new HubModels.UserSessionModel(userSession);
+                            UserSession = new HubModels.UserSessionModel(userSession);
 
-                        userSessionBLL.SaveUserSession(userSession);
+                            userSessionBLL.SaveUserSession(userSession);
+                        }
                     }
                 }
             }
@@ -140,16 +153,25 @@ namespace MidwestDevOps_Hub
             }
         }
 
+        bool isClosing = false;
+
         private void Hub_FormClosing(object sender, FormClosingEventArgs e)
         {
-            using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
+            if (isClosing == false)
             {
-                var userSession = UserSession;
-                userSession.StatusLID = (int)DataEntities.Lookup.UserSession.INACTIVE;
-                userSession.ExpireDate = DateTime.Now.AddDays(-1);
+                inactivityTimer.Stop();
 
-                userSessionBLL.SaveUserSession(userSession.ConvertToEntity());
+                using (var userSessionBLL = new BusinessLogicLayer.UserSessions(Utility.GetConnectionString()))
+                {
+                    var userSession = UserSession;
+                    userSession.StatusLID = (int)DataEntities.Lookup.UserSession.INACTIVE;
+                    userSession.ExpireDate = DateTime.Now.AddDays(-1);
+
+                    userSessionBLL.SaveUserSession(userSession.ConvertToEntity());
+                }
             }
+
+            isClosing = true;
         }
     }
 }

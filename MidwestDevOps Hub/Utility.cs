@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace MidwestDevOps_Hub
 {
@@ -36,6 +37,12 @@ namespace MidwestDevOps_Hub
         public static void RestartApplication(System.Windows.Forms.Form mainHub)
         {
             System.Diagnostics.Process.Start(System.Windows.Forms.Application.ExecutablePath); // to start new instance of application
+            mainHub.Close(); //to turn off current app
+        }
+
+        public static void CloseApplication(System.Windows.Forms.Form mainHub)
+        {
+            Application.Exit();
             mainHub.Close(); //to turn off current app
         }
 

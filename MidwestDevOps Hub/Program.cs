@@ -25,10 +25,14 @@ namespace MidwestDevOps_Hub
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
 
-            if (isFirstTime || args.Where(x => x == "isFirstTime").Count() > 0)
+            #if TEST
                 Application.Run(new FirstTimeSetUp());
-            else
-                Application.Run(new Login());
+            #else
+                if (isFirstTime || args.Where(x => x == "isFirstTime").Count() > 0)
+                    Application.Run(new FirstTimeSetUp());
+                else
+                    Application.Run(new Login());
+            #endif
         }
 
         private static void MyCommonExceptionHandlingMethod(object sender, ThreadExceptionEventArgs t)

@@ -4,14 +4,8 @@ using System.Collections.Generic;
 
 namespace BusinessLogicLayer
 {
-    public class UserSessions : IDisposable
+    public class UserSessions : BLLManager, IDisposable
     {
-
-        #region Boring Stuff
-
-        string ConnectionString { get; set; }
-
-        MySqlConnection sqlConnection { get; set; }
 
         public UserSessions(string connectionString)
         {
@@ -22,26 +16,6 @@ namespace BusinessLogicLayer
         {
             this.sqlConnection = sqlConnection;
         }
-
-        internal MySqlConnection GetConnection()
-        {
-            if (sqlConnection == null)
-            {
-                return new MySqlConnection(this.ConnectionString);
-            }
-            else
-            {
-                return this.sqlConnection;
-            }
-        }
-
-        public void Dispose()
-        {
-            if (sqlConnection != null)
-                sqlConnection.Dispose();
-        }
-
-        #endregion
 
         public List<DataEntities.UserSession> GetAllUserSessions()
         {
@@ -91,7 +65,7 @@ namespace BusinessLogicLayer
             return null;
         }
 
-        public DataEntities.UserSession GetUserSessionLatestRecordForUserID(int userID)
+        public DataEntities.UserSession GetUserSessionLatestRecordForUserID(int userID, bool expireDateMatter = true)
         {
             try
             {
@@ -99,7 +73,7 @@ namespace BusinessLogicLayer
 
                 var userSession = userSessionDLL.GetUserSessionLatestRecordForUserID(userID);
 
-                if (userSession.ExpireDate <= DateTime.Now)
+                if (userSession.ExpireDate <= DateTime.Now  && expireDateMatter == true)
                 {
                     return null;
                 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hub));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openHubFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,7 @@
             this.viewUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cryptDecryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openHubFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.projectsToolStripMenuItem,
             this.ticketsToolStripMenuItem,
             this.usersToolStripMenuItem,
-            this.utilitiesToolStripMenuItem});
+            this.utilitiesToolStripMenuItem,
+            this.serverVersionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(864, 24);
@@ -67,6 +69,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openHubFolderToolStripMenuItem
+            // 
+            this.openHubFolderToolStripMenuItem.Name = "openHubFolderToolStripMenuItem";
+            this.openHubFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openHubFolderToolStripMenuItem.Text = "Open Hub Folder";
+            this.openHubFolderToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // projectsToolStripMenuItem
             // 
@@ -133,7 +142,7 @@
             // viewUsersToolStripMenuItem
             // 
             this.viewUsersToolStripMenuItem.Name = "viewUsersToolStripMenuItem";
-            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewUsersToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.viewUsersToolStripMenuItem.Text = "View Users";
             this.viewUsersToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
@@ -152,12 +161,11 @@
             this.cryptDecryptToolStripMenuItem.Text = "Crypt / Decrypt";
             this.cryptDecryptToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
-            // openHubFolderToolStripMenuItem
+            // serverVersionToolStripMenuItem
             // 
-            this.openHubFolderToolStripMenuItem.Name = "openHubFolderToolStripMenuItem";
-            this.openHubFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.openHubFolderToolStripMenuItem.Text = "Open Hub Folder";
-            this.openHubFolderToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
+            this.serverVersionToolStripMenuItem.Name = "serverVersionToolStripMenuItem";
+            this.serverVersionToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.serverVersionToolStripMenuItem.Text = "Server Version";
             // 
             // Hub
             // 
@@ -195,6 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem utilitiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cryptDecryptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openHubFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serverVersionToolStripMenuItem;
     }
 }
 

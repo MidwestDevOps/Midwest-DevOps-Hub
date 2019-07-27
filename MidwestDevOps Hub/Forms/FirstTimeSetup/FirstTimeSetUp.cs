@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MidwestDevOps_Hub.Forms.Login;
 
 namespace MidwestDevOps_Hub.Forms.FirstTimeSetup
 {
@@ -54,11 +55,16 @@ namespace MidwestDevOps_Hub.Forms.FirstTimeSetup
 
                     ConnectionHandler.SaveConnectionString(con);
 
+                    //this.Hide();
+                    //Login.Login login = new Login.Login();
+                    //login.Show();
+
                     Utility.RestartApplication(this);
                 }
             }
             catch (Exception ex)
             {
+                BusinessLogicLayer.Logging.SaveLog(new Log() { exception = ex, time = DateTime.Now });
                 MessageBox.Show("Something went wrong", "Error");
             }
         }

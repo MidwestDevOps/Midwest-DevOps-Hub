@@ -4,14 +4,8 @@ using System.Collections.Generic;
 
 namespace BusinessLogicLayer
 {
-    public class TicketCategories : IDisposable
+    public class TicketCategories : BLLManager, IDisposable
     {
-
-        #region Boring Stuff
-
-        string ConnectionString { get; set; }
-
-        MySqlConnection sqlConnection { get; set; }
 
         public TicketCategories(string connectionString)
         {
@@ -22,26 +16,6 @@ namespace BusinessLogicLayer
         {
             this.sqlConnection = sqlConnection;
         }
-
-        internal MySqlConnection GetConnection()
-        {
-            if (sqlConnection == null)
-            {
-                return new MySqlConnection(this.ConnectionString);
-            }
-            else
-            {
-                return this.sqlConnection;
-            }
-        }
-
-        public void Dispose()
-        {
-            if (sqlConnection != null)
-                sqlConnection.Dispose();
-        }
-
-        #endregion
 
         public List<DataEntities.TicketCategory> GetAllCategories()
         {
