@@ -25,8 +25,6 @@ namespace MidwestDevOps_Hub
             Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
 
-            var tex = TextHasher.Crypt("server=mysql.midwestdevops.com;port=3306;database=hub_AmainA;username=hubuser;password=Iliketoeat1!");
-
             #if TEST
                 Application.Run(new FirstTimeSetUp());
             #else
