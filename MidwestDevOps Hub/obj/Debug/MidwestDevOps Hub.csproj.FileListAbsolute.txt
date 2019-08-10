@@ -256,3 +256,5 @@ C:\Debug\Hub\MidwestDevOps Hub.exe.manifest
 C:\Debug\Hub\MidwestDevOps Hub.application
 C:\Debug\Hub\MidwestDevOps Hub.exe
 C:\Debug\Hub\MidwestDevOps Hub.pdb
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.ManageTicketCategories.resources
+C:\Users\Mark\source\repos\MidwestDevOps Hub\Midwest-DevOps-Hub\MidwestDevOps Hub\obj\Debug\MidwestDevOps_Hub.Forms.Ticket.TicketCategoryDependencies.resources

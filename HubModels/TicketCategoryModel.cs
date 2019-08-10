@@ -16,6 +16,11 @@ namespace HubModels
             get; set;
         }
 
+        public string Color
+        {
+            get; set;
+        }
+
         public TicketCategoryModel()
         {
 
@@ -25,6 +30,7 @@ namespace HubModels
         {
             this.TicketCategoryID = p.TicketCategoryID;
             this.Name = p.Name;
+            this.Color = p.Color;
             this.Active = p.Active;
             this.CreatedBy = p.CreatedBy;
             this.CreatedDate = p.CreatedDate;
@@ -38,6 +44,7 @@ namespace HubModels
 
             p.TicketCategoryID = this.TicketCategoryID;
             p.Name = this.Name;
+            p.Color = this.Color;
             p.Active = this.Active;
             p.CreatedBy = this.CreatedBy;
             p.CreatedDate = this.CreatedDate;

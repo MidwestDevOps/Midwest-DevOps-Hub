@@ -68,67 +68,76 @@ namespace MidwestDevOps_Hub.Forms.Login
 
             string ip = Utility.GetIPAddress();
 
-            using (var userBLL = new BusinessLogicLayer.Users(Utility.GetConnectionString()))
+            try
             {
-                var activityLogBLL = new BusinessLogicLayer.ActivityLogs(userBLL.GetConnection());
 
-                var user = userBLL.GetUserByUsername(txtUsername.Text);
-
-                if (user != null)
+                using (var userBLL = new BusinessLogicLayer.Users(Utility.GetConnectionString()))
                 {
-                    if (userBLL.VerifyPassword(user, txtPassword.Text))
+                    var activityLogBLL = new BusinessLogicLayer.ActivityLogs(userBLL.GetConnection());
+
+                    var user = userBLL.GetUserByUsername(txtUsername.Text);
+
+                    if (user != null)
                     {
-                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Success", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.SUCCESS, IP = ip });
-
-                        var userSessionBLL = new BusinessLogicLayer.UserSessions(userBLL.GetConnection());
-
-                        var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(user.UserID.Value);
-
-                        long? userSessionID = 0;
-
-                        if (userSession == null) //Timed out or no record
+                        if (userBLL.VerifyPassword(user, txtPassword.Text))
                         {
-                            HubModels.UserSessionModel userSessionModel = new HubModels.UserSessionModel();
-                            userSessionModel.GUID = Guid.NewGuid().ToString();
-                            userSessionModel.UserID = user.UserID.Value;
-                            userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
-                            userSessionModel.ExpireDate = DateTime.Now.AddHours(1);
-                            userSessionModel.CreatedDate = DateTime.Now;
-                            userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
+                            activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Success", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.SUCCESS, IP = ip });
 
-                            userSession = userSessionModel.ConvertToEntity();
+                            var userSessionBLL = new BusinessLogicLayer.UserSessions(userBLL.GetConnection());
+
+                            var userSession = userSessionBLL.GetUserSessionLatestRecordForUserID(user.UserID.Value);
+
+                            long? userSessionID = 0;
+
+                            if (userSession == null) //Timed out or no record
+                            {
+                                HubModels.UserSessionModel userSessionModel = new HubModels.UserSessionModel();
+                                userSessionModel.GUID = Guid.NewGuid().ToString();
+                                userSessionModel.UserID = user.UserID.Value;
+                                userSessionModel.StatusLID = (int)DataEntities.Lookup.UserSession.ACTIVE;
+                                userSessionModel.ExpireDate = DateTime.Now.AddHours(1);
+                                userSessionModel.CreatedDate = DateTime.Now;
+                                userSessionID = userSessionBLL.SaveUserSession(userSessionModel.ConvertToEntity());
+
+                                userSession = userSessionModel.ConvertToEntity();
+                            }
+                            else
+                            {
+                                userSession.ExpireDate = DateTime.Now.AddHours(1);
+                                userSessionID = userSessionBLL.SaveUserSession(userSession);
+                            }
+
+                            if (userSessionID != null)
+                            {
+                                userSession.UserSessionID = Convert.ToInt32(userSessionID);
+
+                                this.Hide();
+                                Hub f = new Hub(new HubModels.UserSessionModel(userSession));
+                                f.Closed += (s, args) => this.Close();
+                                f.Show();
+                            }
                         }
                         else
                         {
-                            userSession.ExpireDate = DateTime.Now.AddHours(1);
-                            userSessionID = userSessionBLL.SaveUserSession(userSession);
-                        }
+                            activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Password Incorrect", Value = txtUsername.Text + ": " + txtPassword.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
 
-                        if (userSessionID != null)
-                        {
-                            userSession.UserSessionID = Convert.ToInt32(userSessionID);
-
-                            this.Hide();
-                            Hub f = new Hub(new HubModels.UserSessionModel(userSession));
-                            f.Closed += (s, args) => this.Close();
-                            f.Show();
+                            FormReset();
+                            lblErrorMessage.Text = "Username or password is incorrect.";
                         }
                     }
                     else
                     {
-                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Password Incorrect", Value = txtUsername.Text + ": " + txtPassword.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
+                        activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Username NotFound", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
 
                         FormReset();
                         lblErrorMessage.Text = "Username or password is incorrect.";
                     }
                 }
-                else
-                {
-                    activityLogBLL.SaveActivityLog(new DataEntities.ActivityLog() { Action = "Login Username NotFound", Value = txtUsername.Text, ApplicationLID = (int)DataEntities.Lookup.Application.WINDOWSNET, CreatedDate = DateTime.Now, ReturnedLID = (int)DataEntities.Lookup.ActivityLog.FAILED, IP = ip });
 
-                    FormReset();
-                    lblErrorMessage.Text = "Username or password is incorrect.";
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There seems to be a problem connecting to the server. Please wait a few mintues. \r\nIf this still happens email support:\r\n midwestdevops@gmail.com", "Error");
             }
         }
 

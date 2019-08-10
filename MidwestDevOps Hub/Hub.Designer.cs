@@ -44,6 +44,7 @@
             this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cryptDecryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverVersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createTicketCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // openHubFolderToolStripMenuItem
             // 
             this.openHubFolderToolStripMenuItem.Name = "openHubFolderToolStripMenuItem";
-            this.openHubFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openHubFolderToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.openHubFolderToolStripMenuItem.Text = "Open Hub Folder";
             this.openHubFolderToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
@@ -105,7 +106,8 @@
             this.ticketsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createTicketToolStripMenuItem,
             this.viewTicketsToolStripMenuItem,
-            this.openTicketToolStripMenuItem});
+            this.openTicketToolStripMenuItem,
+            this.createTicketCategoryToolStripMenuItem});
             this.ticketsToolStripMenuItem.Name = "ticketsToolStripMenuItem";
             this.ticketsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.ticketsToolStripMenuItem.Text = "Tickets";
@@ -113,22 +115,22 @@
             // createTicketToolStripMenuItem
             // 
             this.createTicketToolStripMenuItem.Name = "createTicketToolStripMenuItem";
-            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.createTicketToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.createTicketToolStripMenuItem.Text = "Create Ticket";
             this.createTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // viewTicketsToolStripMenuItem
             // 
             this.viewTicketsToolStripMenuItem.Name = "viewTicketsToolStripMenuItem";
-            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.viewTicketsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.viewTicketsToolStripMenuItem.Text = "View Tickets";
             this.viewTicketsToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // openTicketToolStripMenuItem
             // 
             this.openTicketToolStripMenuItem.Name = "openTicketToolStripMenuItem";
-            this.openTicketToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.openTicketToolStripMenuItem.Text = "Open Ticket";
+            this.openTicketToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.openTicketToolStripMenuItem.Text = "Open Ticket By ID";
             this.openTicketToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
             // 
             // usersToolStripMenuItem
@@ -167,6 +169,13 @@
             this.serverVersionToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.serverVersionToolStripMenuItem.Text = "Server Version";
             // 
+            // createTicketCategoryToolStripMenuItem
+            // 
+            this.createTicketCategoryToolStripMenuItem.Name = "createTicketCategoryToolStripMenuItem";
+            this.createTicketCategoryToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.createTicketCategoryToolStripMenuItem.Text = "Manage Ticket Categories";
+            this.createTicketCategoryToolStripMenuItem.Click += new System.EventHandler(this.createProjectToolStripMenuItem_Click);
+            // 
             // Hub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,6 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem cryptDecryptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openHubFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serverVersionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createTicketCategoryToolStripMenuItem;
     }
 }
 

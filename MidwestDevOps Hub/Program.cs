@@ -42,14 +42,15 @@ namespace MidwestDevOps_Hub
             BusinessLogicLayer.Logging.SaveLog(new BusinessLogicLayer.Log() { time = DateTime.Now, exception = t.Exception });
         }
 
-        internal static void CreateDirectory(string path)
+        internal static void CreateDirectory(string path, bool hidden)
         {
-            if (Directory.Exists(path)) { 
+            if (Directory.Exists(path)) {
 
             }
             else
             {
-                Directory.CreateDirectory(path);
+                DirectoryInfo di = Directory.CreateDirectory(path);
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
             }
         }
 
@@ -60,7 +61,7 @@ namespace MidwestDevOps_Hub
             }
             else
             {
-                File.Create(path);
+                File.Create(path).Dispose();
             }
         }
 
@@ -69,16 +70,16 @@ namespace MidwestDevOps_Hub
 
             String path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            CreateDirectory(Path.Combine(path, "MidwestDevOps"));
+            CreateDirectory(Path.Combine(path, "MidwestDevOps"), false);
 
             //Connections
-            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Connections"));
+            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Connections"), true);
             if (!File.Exists(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json")) || String.IsNullOrEmpty(File.ReadAllText(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json"))))
                 isFirstTime = true;
             CreateFile(Path.Combine(path, "MidwestDevOps", "Connections", "Connections.json"));
 
             //Logging
-            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Logging"));
+            CreateDirectory(Path.Combine(path, "MidwestDevOps", "Logging"), false);
             CreateFile(Path.Combine(path, "MidwestDevOps", "Logging", "log.txt"));
 
             BusinessLogicLayer.Logging.LogPath = Path.Combine(path, "MidwestDevOps", "Logging", "log.txt");

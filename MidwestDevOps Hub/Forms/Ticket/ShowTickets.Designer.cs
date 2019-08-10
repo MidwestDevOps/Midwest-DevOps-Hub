@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ltvTickets = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +65,7 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.ltvTickets.FullRowSelect = true;
             this.ltvTickets.Location = new System.Drawing.Point(17, 57);
             this.ltvTickets.Name = "ltvTickets";
             this.ltvTickets.Size = new System.Drawing.Size(506, 168);
@@ -72,6 +73,11 @@
             this.ltvTickets.UseCompatibleStateImageBehavior = false;
             this.ltvTickets.View = System.Windows.Forms.View.Details;
             this.ltvTickets.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.DisplayIndex = 3;
+            this.columnHeader4.Width = 0;
             // 
             // columnHeader1
             // 
@@ -90,11 +96,6 @@
             this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Category";
             this.columnHeader3.Width = 150;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.DisplayIndex = 3;
-            this.columnHeader4.Width = 0;
             // 
             // ShowTickets
             // 

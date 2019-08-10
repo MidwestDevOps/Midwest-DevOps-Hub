@@ -132,7 +132,7 @@ namespace MidwestDevOps_Hub
                     showTickets.MdiParent = this;
                     showTickets.Show();
                     break;
-                case "Open Ticket":
+                case "Open Ticket By ID":
                     OpenTicketID openTicket = new OpenTicketID(this);
                     openTicket.MdiParent = this;
                     openTicket.Show();
@@ -146,6 +146,11 @@ namespace MidwestDevOps_Hub
                     DecryptCrypt decryptCrypt = new DecryptCrypt(this);
                     decryptCrypt.MdiParent = this;
                     decryptCrypt.Show();
+                    break;
+                case "Manage Ticket Categories":
+                    ManageTicketCategories manageTicketCategories = new ManageTicketCategories(this);
+                    manageTicketCategories.MdiParent = this;
+                    manageTicketCategories.Show();
                     break;
                 case "Open Hub Folder":
                     Process.Start(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MidwestDevOps"));

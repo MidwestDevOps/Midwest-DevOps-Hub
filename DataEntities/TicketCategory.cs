@@ -15,5 +15,10 @@ namespace DataEntities
         {
             get; set;
         }
+
+        public string Color
+        {
+            get; set;
+        }
     }
 }

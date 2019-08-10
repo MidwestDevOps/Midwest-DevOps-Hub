@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Debug\</PublishUrl>
+    <PublishUrl>C:\Users\Mark\Desktop\MarksFolder\Company\MDO\Builds\Hub\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -23,12 +23,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://applications.midwestdevops.com/Hub/</InstallUrl>
+    <InstallUrl>https://applications.midwestdevops.com/Hub/</InstallUrl>
     <ProductName>Midwest DevOps Hub</ProductName>
     <PublisherName>Midwest DevOps</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -123,6 +123,12 @@
     <Compile Include="Forms\FirstTimeSetup\FirstTimeSetUp.Designer.cs">
       <DependentUpon>FirstTimeSetUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Ticket\TicketCategoryDependencies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ticket\TicketCategoryDependencies.Designer.cs">
+      <DependentUpon>TicketCategoryDependencies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Ticket\OpenTicketID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,12 @@
     </Compile>
     <Compile Include="Forms\Ticket\ShowTicket.Designer.cs">
       <DependentUpon>ShowTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Ticket\ManageTicketCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Ticket\ManageTicketCategories.Designer.cs">
+      <DependentUpon>ManageTicketCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\User\ShowUsers.cs">
       <SubType>Form</SubType>
@@ -190,11 +202,17 @@
     <EmbeddedResource Include="Forms\FirstTimeSetup\FirstTimeSetUp.resx">
       <DependentUpon>FirstTimeSetUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ticket\TicketCategoryDependencies.resx">
+      <DependentUpon>TicketCategoryDependencies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ticket\OpenTicketID.resx">
       <DependentUpon>OpenTicketID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Ticket\ShowTicket.resx">
       <DependentUpon>ShowTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Ticket\ManageTicketCategories.resx">
+      <DependentUpon>ManageTicketCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\ShowUsers.resx">
       <DependentUpon>ShowUsers.cs</DependentUpon>

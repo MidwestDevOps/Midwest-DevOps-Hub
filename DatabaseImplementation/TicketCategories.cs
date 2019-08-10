@@ -81,6 +81,62 @@ namespace DatabaseLogicLayer
             }
         }
 
+        public int? NumberOfDependentTickets(int ticketCategoryID)
+        {
+            DataEntities.TicketCategory person = new DataEntities.TicketCategory();
+
+            int? count = 0;
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ticket Where CategoryID = @ID;", conn);
+
+                cmd.Parameters.AddWithValue("@ID", ticketCategoryID);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        count++;
+                    }
+
+                    return count;
+                }
+            }
+        }
+
+        public long? ReplaceDependentTickets(int newCategoryID, int oldCategoryID)
+        {
+            DataEntities.TicketCategory person = new DataEntities.TicketCategory();
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE ticket SET CategoryID = @NewID Where CategoryID = @ID;", conn);
+
+                cmd.Parameters.AddWithValue("@NewID", newCategoryID);
+                cmd.Parameters.AddWithValue("@ID", oldCategoryID);
+
+                return cmd.ExecuteNonQuery();
+            }
+        }
+
+        public bool DeleteCategory(int ticketCategoryID)
+        {
+            DataEntities.TicketCategory person = new DataEntities.TicketCategory();
+
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM ticketcategory Where TicketCategoryID = @ID;", conn);
+
+                cmd.Parameters.AddWithValue("@ID", ticketCategoryID);
+                var rtnValue = cmd.ExecuteNonQuery();
+
+                return rtnValue == 1 ? true : false;
+            }
+        }
+
         public long? SaveCategory(DataEntities.TicketCategory p)
         {
             using (MySqlConnection conn = GetConnection())
@@ -91,18 +147,19 @@ namespace DatabaseLogicLayer
 
                 if (p.TicketCategoryID == null)
                 {
-                    sql = @"INSERT INTO `ticketcategory` (`TicketCategoryID`, `Name`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `Active`) VALUES (NULL, @Name, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate, @Active);
+                    sql = @"INSERT INTO `ticketcategory` (`TicketCategoryID`, `Name`, `Color`, `CreatedBy`, `CreatedDate`, `ModifiedBy`, `ModifiedDate`, `Active`) VALUES (NULL, @Name, @Color, @CreatedBy, @CreatedDate, @ModifiedBy, @ModifiedDate, @Active);
                             SELECT LAST_INSERT_ID();";
                 }
                 else
                 {
-                    sql = @"UPDATE `ticketcategory` SET TicketCategoryID = @ID, Name = @Name, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate, Active = @Active WHERE TicketCategoryID = @ID;";
+                    sql = @"UPDATE `ticketcategory` SET TicketCategoryID = @ID, Name = @Name, Color = @Color, CreatedBy = @CreatedBy, CreatedDate = @CreatedDate, ModifiedBy = @ModifiedBy, ModifiedDate = @ModifiedDate, Active = @Active WHERE TicketCategoryID = @ID;";
                 }
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.Parameters.AddWithValue("@ID", p.TicketCategoryID);
                 cmd.Parameters.AddWithValue("@Name", p.Name);
+                cmd.Parameters.AddWithValue("@Color", p.Color);
                 cmd.Parameters.AddWithValue("@CreatedBy", p.CreatedBy);
                 cmd.Parameters.AddWithValue("@CreatedDate", p.CreatedDate);
                 cmd.Parameters.AddWithValue("@ModifiedBy", p.ModifiedBy);
@@ -128,6 +185,7 @@ namespace DatabaseLogicLayer
 
             p.TicketCategoryID = Convert.ToInt32(DBUtilities.ReturnSafeInt(reader, "TicketCategoryID"));
             p.Name = DBUtilities.ReturnSafeString(reader, "Name");
+            p.Color = DBUtilities.ReturnSafeString(reader, "Color");
             p.Active = DBUtilities.ReturnBoolean(reader, "Active");
             p.CreatedBy = DBUtilities.ReturnSafeInt(reader, "CreatedBy");
             p.CreatedDate = DBUtilities.ReturnSafeDateTime(reader, "CreatedDate");
