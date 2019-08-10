@@ -331,7 +331,7 @@ namespace MidwestDevOps_Hub.Forms.Ticket
             else //A category is selected
             {
                 btnSave.Text = "Update Category";
-                btnClearCategory.Text = "Create Category";
+                btnClearCategory.Text = "New Category";
                 CreateNewCategory = false;
                 btnClearCategory.Visible = true;
                 btnDelete.Visible = true;

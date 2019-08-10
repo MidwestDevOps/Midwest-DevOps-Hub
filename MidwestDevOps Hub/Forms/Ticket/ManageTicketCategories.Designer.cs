@@ -145,7 +145,7 @@
             this.btnClearCategory.Name = "btnClearCategory";
             this.btnClearCategory.Size = new System.Drawing.Size(100, 29);
             this.btnClearCategory.TabIndex = 8;
-            this.btnClearCategory.Text = "Create Category";
+            this.btnClearCategory.Text = "New Category";
             this.btnClearCategory.UseVisualStyleBackColor = true;
             this.btnClearCategory.Click += new System.EventHandler(this.btnClearCategory_Click);
             // 
