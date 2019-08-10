@@ -258,7 +258,14 @@ namespace MidwestDevOps_Hub.Forms.Ticket
                         {
                             TicketCategoryDependencies categoryDependencies = new TicketCategoryDependencies(MainForm, this, category.TicketCategoryID.Value);
                             categoryDependencies.MdiParent = MainForm;
-                            categoryDependencies.Show();
+                            try
+                            {
+                                categoryDependencies.Show();
+                            }
+                            catch
+                            {
+                                categoryDependencies.Close();
+                            }
                         }
                     }
                     else

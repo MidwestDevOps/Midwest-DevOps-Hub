@@ -115,6 +115,12 @@ namespace MidwestDevOps_Hub.Forms.Ticket
                 cboCategories.ValueMember = "TicketCategoryID";
                 cboCategories.DisplayMember = "Name";
                 cboCategories.DataSource = categories;
+
+                if (categories.Count() <= 0)
+                {
+                    MessageBox.Show("Can't have less than 1 category", "Warning");
+                    this.Close();
+                }
             }
         }
 
