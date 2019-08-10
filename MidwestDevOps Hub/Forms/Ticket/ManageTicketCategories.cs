@@ -327,6 +327,8 @@ namespace MidwestDevOps_Hub.Forms.Ticket
                 CreateNewCategory = true;
                 btnClearCategory.Visible = false;
                 btnDelete.Visible = false;
+
+                ltvTickets.SelectedItems.Clear();
             }
             else //A category is selected
             {
